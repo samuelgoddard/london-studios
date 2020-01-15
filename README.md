@@ -1,19 +1,15 @@
 <h1 align="center">
-  Gatsby x Tailwind x Framer Motion Boilerplate
+  London Studios
 </h1>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7e52dbac-aec4-4a56-864f-e33649fadc9b/deploy-status)](https://app.netlify.com/sites/gatsby-tailwind-motion/deploys)
-
-Gatsby + Tailwind + Framer Motion powered boilerplate
-
-[https://gatsby-tailwind-motion.netlify.com](https://gatsby-tailwind-motion.netlify.com)
+Gatsby + Tailwind + Framer Motion powered website for London Studios
 
 ## 🚀 Quick start
 
 1.  **Clone the repo**
 
     ```sh
-    git clone https://github.com/samuelgoddard/gatsby-tailwind-motion
+    git clone https://github.com/samuelgoddard/london-studios
     ```
 
 1.  **Start developing.**
@@ -27,7 +23,7 @@ Gatsby + Tailwind + Framer Motion powered boilerplate
     Start developing locally (with gatsby-cli).
 
     ```sh
-    cd gatsby-tailwind-motion/
+    cd london-studios/
     gatsby develop
     ```
 
