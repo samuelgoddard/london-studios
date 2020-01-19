@@ -2,6 +2,10 @@
   London Studios
 </h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/92492381-7cce-44f8-adc7-09eab5b30d38/deploy-status)](https://app.netlify.com/sites/london-studios/deploys)
+
+[https://london-studios.netlify.com](https://london-studios.netlify.com)
+
 Gatsby + Tailwind + Framer Motion powered website for London Studios
 
 ## 🚀 Quick start
