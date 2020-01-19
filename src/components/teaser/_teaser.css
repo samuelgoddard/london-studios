@@ -1,0 +1,34 @@
+.m-teaser {
+  @apply bg-black;
+}
+
+.m-teaser__title {
+  margin-top: -35px;
+  line-height: 0.8;
+  @apply mb-0 pb-0;
+
+  @screen lg {
+    margin-top: -47px;
+  }
+}
+
+.m-teaser__img {
+  @apply w-full relative z-0 opacity-25;
+
+  &.is--active {
+    @apply opacity-100;
+  }
+}
+
+@-webkit-keyframes rotating {
+  from{
+      -webkit-transform: rotate(0deg);
+  }
+  to{
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  -webkit-animation: rotating 15s linear infinite;
+}

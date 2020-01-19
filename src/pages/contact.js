@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+// import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { motion } from "framer-motion"
 
@@ -22,10 +22,10 @@ const item = {
   },
 }
 
-const IndexPage = ({ data: { home } }) => {
+const ContactPage = () => {
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Contact" />
       <motion.section
         variants={container}
         initial="hidden" 
@@ -37,11 +37,10 @@ const IndexPage = ({ data: { home } }) => {
           variants={item}
           transition="easeInOut"
         >
-
-          <h1>{home.title}</h1>
+          <h1>Contact</h1>
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-          <h2>Lorem ipsum</h2>
+          <h2>Lorem ipsum dolor sit amet</h2>
           
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </motion.div>
@@ -50,12 +49,12 @@ const IndexPage = ({ data: { home } }) => {
   )
 }
 
-export default IndexPage
+export default ContactPage
 
-export const query = graphql`
-  query IndexQuery {
-    home: datoCmsHome {
-      title
-    }
-  }
-`
+// export const query = graphql`
+//   query IndexQuery {
+//     home: datoCmsHome {
+//       title
+//     }
+//   }
+// `

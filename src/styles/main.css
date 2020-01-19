@@ -8,6 +8,17 @@
 /* Custom Partials */
 @import './partials/_container.css';
 @import './partials/_typography.css';
+@import '../components/teaser/_teaser.css';
 
 /* Tailwind Utils */
 @import 'tailwindcss/utilities';
+
+body {
+  @apply bg-black text-white uppercase text-base;
+}
+
+.image-gradient {
+  height: 45%;
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);
+}

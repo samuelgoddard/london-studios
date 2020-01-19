@@ -1,6 +1,7 @@
 import React from "react"
+// import { graphql } from "gatsby"
 import SEO from "../components/seo"
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion"
 
 const duration = 0.35
 
@@ -29,29 +30,15 @@ const AboutPage = () => {
         variants={container}
         initial="hidden" 
         animate="visible"
-        className="container"
+        className="container pt-40 md:pt-48"
       >
         <motion.div 
-          className="content"
+          className="content w-full md:w-2/3"
           variants={item}
           transition="easeInOut"
         >
-          <p className="text-lg md:text-xl pl-3 border-l-2 border-black">Hello from the about page</p>
-        </motion.div>
 
-        <motion.div 
-          className="content"
-          variants={item}
-          transition="easeInOut"
-        >
-          <hr className="block my-8" />
-        </motion.div>
-
-        <motion.div 
-          className="content"
-          variants={item}
-          transition="easeInOut"
-        >
+          <h1>About</h1>
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
           <h2>Lorem ipsum dolor sit amet</h2>
@@ -64,3 +51,11 @@ const AboutPage = () => {
 }
 
 export default AboutPage
+
+// export const query = graphql`
+//   query IndexQuery {
+//     home: datoCmsHome {
+//       title
+//     }
+//   }
+// `
