@@ -38,6 +38,7 @@ const LocationPage = ({ data: { location }}) => {
         <motion.div 
           variants={item}
           transition="easeInOut"
+          className="mb-12 md:mb-24"
         >
           <div className="relative">
             <div className="image-gradient absolute bottom-0 left-0 right-0 w-full z-10">
@@ -73,6 +74,36 @@ const LocationPage = ({ data: { location }}) => {
             </div>
           </div>
         </motion.div>
+
+        <motion.div 
+          variants={item}
+          transition="easeInOut"
+        >
+          <div className="container">
+            <div className="overflow-hidden">
+              <div className="flex flex-wrap md:-mx-12">
+                { location.hireRates && (
+                  <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-12">
+                    <h3 className="mb-6 md:mb-8">Hire<span className="block">Rates</span></h3>
+                    <HTMLContent 
+                      content={location.hireRates}
+                      className="content"
+                    />
+                  </div>
+                )}
+                { location.furtherInformation && (
+                  <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-12">
+                    <h3 className="mb-6 md:mb-8">Further<span className="block">Information</span></h3>
+                    <HTMLContent 
+                      content={location.furtherInformation}
+                      className="content"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </motion.section>
     </>
   )
@@ -93,6 +124,8 @@ export const query = graphql`
       totalUseableArea
       postcode
       introductionText
+      hireRates
+      furtherInformation
       slug
     }
   }
