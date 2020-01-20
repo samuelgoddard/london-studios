@@ -9,6 +9,15 @@ module.exports = {
       },
       cream: {
         default: '#faf395',
+      },
+      peach: {
+        default: '#ffc3c3',
+      },
+      blue: {
+        default: '#d5edeb',
+      },
+      lilac: {
+        default: '#e4a6ff',
       }
     },
     screens: {

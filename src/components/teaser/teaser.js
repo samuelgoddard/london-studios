@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 
 class Teaser extends React.Component {
   render() {
+    const color = { color: this.props.color };
     return (
       <Link className="m-teaser block relative" to={`/locations/${this.props.slug}`}>
         
@@ -14,13 +15,15 @@ class Teaser extends React.Component {
           </div>
         )}
 
-        <Img
-          fluid={this.props.image}
-          className={this.props.active ? `m-teaser__img is--active` : `m-teaser__img`}
-        />
+        <div className="w-full max-h-64 overflow-hidden">
+          <Img
+            fluid={this.props.image}
+            className={this.props.active ? `m-teaser__img is--active` : `m-teaser__img`}
+          />
+        </div>
 
         <span className="block m-teaser__title h2 relative z-10">{this.props.titlePrefix}</span>
-        <h2 className="text-cream block mb-0 leading-none mb-2 lg:mb-4">{this.props.title}</h2>
+        <h2 style={color} className={`block mb-0 leading-none mb-2 lg:mb-4`}>{this.props.title}</h2>
 
         { this.props.meta && (
           <span className="block m-teaser__meta">{this.props.meta}</span>
@@ -34,6 +37,7 @@ Teaser.defaultProps = {
   slug: ``,
   title: ``,
   titlePrefix: ``,
+  color: ``,
   image: {},
   meta: ``,
   active: true,
@@ -44,6 +48,7 @@ Teaser.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   titlePrefix: PropTypes.string,
+  color: PropTypes.string,
   image: PropTypes.object.isRequired,
   meta: PropTypes.string,
   active: PropTypes.bool,

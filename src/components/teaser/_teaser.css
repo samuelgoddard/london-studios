@@ -1,5 +1,11 @@
 .m-teaser {
   @apply bg-black;
+
+  &:hover, &:focus {
+    .m-teaser__img {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .m-teaser__title {
@@ -13,7 +19,7 @@
 }
 
 .m-teaser__img {
-  @apply w-full relative z-0 opacity-25;
+  @apply w-full relative z-0 opacity-25 transition;
 
   &.is--active {
     @apply opacity-100;

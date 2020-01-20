@@ -77,6 +77,7 @@ const LocationsPage = ({ data: { locations, archivedLocations }}) => {
                         image={node.teaserImage.fluid}
                         meta={meta}
                         active={node.active}
+                        color={node.color.hex}
                       />
                     </div>
                   )
@@ -102,6 +103,7 @@ const LocationsPage = ({ data: { locations, archivedLocations }}) => {
                         meta={meta}
                         disabled={true}
                         active={false}
+                        color={node.color.hex}
                       />
                     </div>
                   )
@@ -132,6 +134,9 @@ export const query = graphql`
               ...GatsbyDatoCmsFluid
             }
           }
+          color {
+            hex
+          }
           slug
         }
       }
@@ -148,6 +153,9 @@ export const query = graphql`
             fluid(imgixParams: {h: "1200", w: "900"}) {
               ...GatsbyDatoCmsFluid
             }
+          }
+          color {
+            hex
           }
           slug
         }

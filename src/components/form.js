@@ -41,7 +41,9 @@ class Form extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { name, email, venue, date, enquiry } = this.state;
+		const { name, email, venue, date, enquiry } = this.state;
+		const color = { color: this.props.color }
+		const bgColor = { backgroundColor: this.props.color }
     return (
       <form
         name="Location Enquiry"
@@ -60,7 +62,7 @@ class Form extends React.Component {
 							<span className="text-grey pb-1 block text-sm">Name:</span>
 							<input type="text" name="name" id="name" className="input" placeholder="Enter Name" value={name} onChange={this.handleChange} />
 
-							<span className="block mt-2 text-cream text-sm">
+							<span style={color} className="block mt-2 text-sm">
 								{this.validator.message('name', name, 'required')}
 							</span>
 						</label>
@@ -71,7 +73,7 @@ class Form extends React.Component {
 							<span className="text-grey pb-1 block text-sm">Email:</span>
 							<input type="email" name="email" id="email" className="input" placeholder="Enter Email" value={email} onChange={this.handleChange} />
 
-							<span className="block mt-2 text-cream text-sm">
+							<span style={color} className="block mt-2 text-sm">
 								{this.validator.message('email', name, 'required|email')}
 							</span>
 						</label>
@@ -82,7 +84,7 @@ class Form extends React.Component {
 							<span className="text-grey pb-1 block text-sm">Venue:</span>
 							<input type="text" name="venue" id="venue" className="input" placeholder="Venue" value={venue} onChange={this.handleChange} />
 
-							<span className="block mt-2 text-cream text-sm">
+							<span style={color} className="block mt-2 text-sm">
 								{this.validator.message('venue', name, 'required')}
 							</span>
 						</label>
@@ -93,7 +95,7 @@ class Form extends React.Component {
 							<span className="text-grey pb-1 block text-sm">Date:</span>
 							<input type="text" name="date" id="date" className="input" placeholder="Date" value={date} onChange={this.handleChange} />
 
-							<span className="block mt-2 text-cream text-sm">
+							<span style={color} className="block mt-2 text-sm">
 								{this.validator.message('venue', name, 'required')}
 							</span>
 						</label>
@@ -108,7 +110,7 @@ class Form extends React.Component {
 						</label>
 					</div>
 					<div className="w-full md:w-auto md:px-4">
-          	<button type="submit" className="bg-cream px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block w-full">Submit</button>
+          	<button type="submit" style={bgColor} className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block w-full">Submit</button>
 					</div>
         </div>
       </form>
