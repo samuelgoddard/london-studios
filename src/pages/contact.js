@@ -22,10 +22,14 @@ const item = {
   },
 }
 
-const ContactPage = () => {
+const ContactPage = ({ location }) => {
   return (
     <>
-      <SEO title="Contact" />
+      <SEO
+        titleOverride={"Contact"}
+        pathnameOverride={location.pathname}
+      />
+
       <motion.section
         variants={container}
         initial="hidden" 

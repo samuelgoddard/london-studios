@@ -22,10 +22,16 @@ const item = {
   },
 }
 
-const IndexPage = ({ data: { home } }) => {
+const IndexPage = ({ data: { home }, location }) => {
   return (
     <>
-      <SEO title="Home" />
+      <SEO
+        titleOverride={home.metaTags && home.metaTags.title ? home.metaTags.title : home.title}
+        descriptionOverride={home.metaTags && home.metaTags.description ? home.metaTags.description : null}
+        pathnameOverride={location.pathname}
+        imageOverride={home.metaTags && home.metaTags.image ? home.metaTags.image.url : null}
+      />
+
       <motion.section
         variants={container}
         initial="hidden" 
@@ -56,6 +62,14 @@ export const query = graphql`
   query IndexQuery {
     home: datoCmsHome {
       title
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
     }
   }
 `

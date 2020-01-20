@@ -24,10 +24,14 @@ const item = {
   },
 }
 
-const LocationsPage = ({ data: { locations, archivedLocations }}) => {
+const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
   return (
     <>
-      <SEO title="About" />
+      <SEO
+        titleOverride={"Locations"}
+        pathnameOverride={location.pathname}
+      />
+
       <motion.section
         variants={container}
         initial="hidden" 

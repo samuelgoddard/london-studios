@@ -25,11 +25,16 @@ const item = {
   },
 }
 
-const LocationPage = ({ data: { location }}) => {
-  const color = { color: location.color.hex }
+const LocationPage = ({ data: { current }, location}) => {
+  const color = { color: current.color.hex }
   return (
     <>
-      <SEO title={location.title} />
+      <SEO
+        titleOverride={current.metaTags && current.metaTags.title ? current.metaTags.title : current.title}
+        descriptionOverride={current.metaTags && current.metaTags.description ? current.metaTags.description : null}
+        pathnameOverride={location.pathname}
+        imageOverride={current.metaTags && current.metaTags.image ? current.metaTags.image.url : null}
+      />
 
       <motion.section
         variants={container}
@@ -45,20 +50,20 @@ const LocationPage = ({ data: { location }}) => {
           <div className="relative">
             <div className="image-gradient absolute bottom-0 left-0 right-0 w-full z-10">
             </div>
-            <Img fluid={location.featuredImage.fluid} className="w-full mb-6 lg:mb-10" />
+            <Img fluid={current.featuredImage.fluid} className="w-full mb-6 lg:mb-10" />
           </div>
           <div className="container -mt-12 md:-mt-20 lg:-mt-32 xl:-mt-48 relative z-20">
             <div className="mb-10 lg:mb-16">
-              <h1 className="mb-3">Studio <span style={color}>{location.title}</span></h1>
+              <h1 className="mb-3">Studio <span style={color}>{current.title}</span></h1>
               <div className="text-base md:text-lg lg:text-xl md:flex md:flex-wrap">
                 <div className="w-full md:w-auto md:pr-5">
-                  <span>Useable Area: {location.totalUseableArea}</span>
+                  <span>Useable Area: {current.totalUseableArea}</span>
                 </div>
                 <div className="w-full md:w-auto md:pr-5">
-                  <span>Total Capacity: {location.totalCapacity}</span>
+                  <span>Total Capacity: {current.totalCapacity}</span>
                 </div>
                 <div className="w-full md:w-auto">
-                  <span>Postcode: {location.postcode}</span>
+                  <span>Postcode: {current.postcode}</span>
                 </div>
               </div>
             </div>
@@ -66,7 +71,7 @@ const LocationPage = ({ data: { location }}) => {
             <div className="flex flex-wrap">
               <div className="w-full md:w-2/3">
                 <HTMLContent 
-                  content={location.introductionText}
+                  content={current.introductionText}
                   className="text-xl md:text-2xl lg:text-3xl leading-snug"
                 />
               </div>
@@ -83,7 +88,7 @@ const LocationPage = ({ data: { location }}) => {
           className="container"
         >
           <div className="flex flex-wrap">
-            {location.floors.map(({images, title, description, floorplan}, index) => (
+            {current.floors.map(({images, title, description, floorplan}, index) => (
               <div
                 className="mb-16 md:mb-32"
                 key={index}
@@ -112,7 +117,7 @@ const LocationPage = ({ data: { location }}) => {
           </div>
         </motion.div>
         
-        { (location.hireRates || location.furtherInformation) && (
+        { (current.hireRates || current.furtherInformation) && (
           <motion.div 
             variants={item}
             transition="easeInOut"
@@ -121,21 +126,21 @@ const LocationPage = ({ data: { location }}) => {
             <div className="container">
               <div className="overflow-hidden">
                 <div className="flex flex-wrap md:-mx-6 lg:-mx-12">
-                  { location.hireRates && (
+                  { current.hireRates && (
                     <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-6 lg:px-12">
                       <h3 className="mb-6 md:mb-8">Hire<span className="block">Rates</span></h3>
                       <HTMLContent 
-                        content={location.hireRates}
+                        content={current.hireRates}
                         className="content"
                       />
                     </div>
                   )}
 
-                  { location.furtherInformation && (
+                  { current.furtherInformation && (
                     <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-6 lg:px-12">
                       <h3 className="mb-6 md:mb-8">Further<span className="block">Information</span></h3>
                       <HTMLContent 
-                        content={location.furtherInformation}
+                        content={current.furtherInformation}
                         className="content"
                       />
                     </div>
@@ -146,7 +151,7 @@ const LocationPage = ({ data: { location }}) => {
           </motion.div>
         )}
 
-        { location.address && (
+        { current.address && (
           <motion.div 
             variants={item}
             transition="easeInOut"
@@ -164,7 +169,7 @@ const LocationPage = ({ data: { location }}) => {
                   <div className="w-full md:w-1/3 lg:w-1/4">
                     <span className="text-sm text-grey">Address:</span>
                     <HTMLContent 
-                      content={location.address}
+                      content={current.address}
                       className="content content--address"
                     />
                   </div>
@@ -183,7 +188,7 @@ const LocationPage = ({ data: { location }}) => {
                 <h3 className="mb-5 md:mb-3">Enquire</h3>
                 <p>Please get in touch to discuss your hire dates and space requirements.</p>
               </div>
-              <Form color={location.color.hex} />
+              <Form color={current.color.hex} />
             </div>
           </div>
         </motion.div>
@@ -196,7 +201,7 @@ export default LocationPage
 
 export const query = graphql`
   query LocationQuery($slug: String!) {
-    location: datoCmsLocation(slug: { eq: $slug }) {
+    current: datoCmsLocation(slug: { eq: $slug }) {
       title
       featuredImage {
         fluid(imgixParams: {h: "1080", w: "1920", fit: "crop", crop: "center"}) {
@@ -222,6 +227,14 @@ export const query = graphql`
       introductionText
       hireRates
       furtherInformation
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       color {
         hex
       }

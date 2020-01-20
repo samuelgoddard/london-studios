@@ -24,10 +24,16 @@ const item = {
   },
 }
 
-const AboutPage = ({ data: { page }}) => {
+const AboutPage = ({ data: { page }, location}) => {
   return (
     <>
-      <SEO title="About" />
+      <SEO
+        titleOverride={page.metaTags && page.metaTags.title ? page.metaTags.title : page.title}
+        descriptionOverride={page.metaTags && page.metaTags.description ? page.metaTags.description : null}
+        pathnameOverride={location.pathname}
+        imageOverride={page.metaTags && page.metaTags.image ? page.metaTags.image.url : null}
+      />
+
       <motion.section
         variants={container}
         initial="hidden" 
@@ -86,6 +92,14 @@ export const query = graphql`
       footerImage {
         fluid(imgixParams: {h: "1080", w: "1920"}) {
           ...GatsbyDatoCmsFluid
+        }
+      }
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
         }
       }
       slug

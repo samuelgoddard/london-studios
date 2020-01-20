@@ -3,6 +3,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://london-studios.netlify.com`,
     title: `London Studios`,
     description: `London Studios.`,
     author: `@samuelgoddard`,
