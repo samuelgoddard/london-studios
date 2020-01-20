@@ -6,7 +6,7 @@ const Header = () => (
   <header className="py-8 md:py-16 absolute top-0 left-0 right-0 z-10">
     <div className="container">
       <div className="flex flex-wrap items-center mb-4">
-        <Link className="font-bold block text-lg md:text-xl inline-block mb-6 md:mb-0" to="/">
+        <Link className="font-bold block text-lg md:text-xl inline-block mb-6 md:mb-0" to="/" aria-label="Navigate to the homepage">
           <Logo />
         </Link>
 
