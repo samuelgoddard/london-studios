@@ -8,6 +8,7 @@
 /* Custom Partials */
 @import './partials/_container.css';
 @import './partials/_typography.css';
+@import './partials/_forms.css';
 @import '../components/teaser/_teaser.css';
 
 /* Tailwind Utils */
@@ -22,3 +23,32 @@ body {
   background: rgb(2,0,36);
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);
 }
+
+.css-cols {
+  @screen md {
+    column-count: 2;
+    column-gap: 50px;
+  }
+}
+
+/*! purgecss start ignore */
+.tab__panel {
+  opacity: 0;
+  
+  &[class*='--selected'] {
+    opacity: 1;
+    animation: fade-and-slide-in 350ms ease-in-out;
+  }
+}
+
+@keyframes fade-and-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*! purgecss end ignore */

@@ -1,0 +1,7 @@
+.input {
+  @apply w-full block border-b-2 border-grey appearance-none bg-transparent uppercase text-lg;
+
+  &:focus {
+    @apply outline-none border-cream;
+  }
+}

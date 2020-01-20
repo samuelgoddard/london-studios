@@ -12,7 +12,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 h1, .h1 {
-  @apply text-6xl;
+  @apply text-5xl;
+
+  @screen lg {
+    @apply text-6xl;
+  }
   
   @screen lg {
     @apply text-7xl;
@@ -62,8 +66,31 @@ h3, .h3 {
   }
 
   ul {
+    @apply list-disc list-inside pl-0;
+
     li {
-      @apply mb-1;
+      @apply mb-1 pl-0;
     }
+  }
+}
+
+.content--floor {
+  p {
+    @apply text-base;
+
+    @screen md {
+      @apply text-lg;
+    }
+  }
+  ul {
+    li {
+      @apply text-sm;
+    }
+  }
+}
+
+.content--address {
+  p {
+    @apply mb-0 text-base;
   }
 }

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
+import Form from "../components/form"
 import { HTMLContent } from "../components/content"
 import Img from "gatsby-image"
 import { motion } from "framer-motion"
@@ -38,7 +39,7 @@ const LocationPage = ({ data: { location }}) => {
         <motion.div 
           variants={item}
           transition="easeInOut"
-          className="mb-12 md:mb-24"
+          className="mb-16 md:mb-32"
         >
           <div className="relative">
             <div className="image-gradient absolute bottom-0 left-0 right-0 w-full z-10">
@@ -75,15 +76,51 @@ const LocationPage = ({ data: { location }}) => {
           </div>
         </motion.div>
 
+        <motion.div
+          variants={item}
+          transition="easeInOut"
+          className="container"
+        >
+          <div className="flex flex-wrap">
+            {location.floors.map(({images, title, description, floorplan}, index) => (
+              <div
+                className="mb-16 md:mb-32"
+                key={index}
+              >
+                <h3 className={ index % 2 ? `text-right` : ``}>{title}</h3>
+                <div className="overflow-hidden">
+                  <div className="flex flex-wrap md:-mx-6">
+                    <div className={ index % 2 ? `order-1 md:order-2 w-full md:w-1/2 lg:w-2/3 md:px-6 mb-8 md:mb-0` : `order-1 md:order-2 w-full md:w-1/2 lg:w-2/3 md:px-6 mb-8 md:mb-0`}>
+                      {images.map(({fluid}, index) => (
+                        <Img fluid={fluid} key={index} className="w-full" />
+                      ))}
+                    </div>
+                    <div className={ index % 2 ? `order-2 md:order-1 w-full md:w-1/2 lg:w-1/3 md:px-6` : `order-1 md:order-2 w-full md:w-1/2 lg:w-1/3 md:px-6`}>
+                      <HTMLContent 
+                        content={description}
+                        className="content content--floor mb-4 md:mb-6"
+                      />
+                      { floorplan && (
+                        <a href={floorplan.url} target="_blank" rel="noopener noreferrer" className="text-cream underline">&darr; Download Floorplans</a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div 
           variants={item}
           transition="easeInOut"
+          className="mb-10 md:mb-32"
         >
           <div className="container">
             <div className="overflow-hidden">
-              <div className="flex flex-wrap md:-mx-12">
+              <div className="flex flex-wrap md:-mx-6 lg:-mx-12">
                 { location.hireRates && (
-                  <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-12">
+                  <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-6 lg:px-12">
                     <h3 className="mb-6 md:mb-8">Hire<span className="block">Rates</span></h3>
                     <HTMLContent 
                       content={location.hireRates}
@@ -91,8 +128,9 @@ const LocationPage = ({ data: { location }}) => {
                     />
                   </div>
                 )}
+
                 { location.furtherInformation && (
-                  <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-12">
+                  <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-6 lg:px-12">
                     <h3 className="mb-6 md:mb-8">Further<span className="block">Information</span></h3>
                     <HTMLContent 
                       content={location.furtherInformation}
@@ -101,6 +139,45 @@ const LocationPage = ({ data: { location }}) => {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div 
+          variants={item}
+          transition="easeInOut"
+          className="mb-16 md:mb-32"
+        >
+          <div className="overflow-hidden">
+            <div className="container">
+              <h3>Location</h3>
+              <div className="flex flex-wrap md:-mx-6">
+                <div className="w-full md:w-2/3 lg:w-3/4 mb-4 md:mb-0 md:px-6">
+                  <div className="w-full h-64 bg-grey opacity-75 flex flex-wrap items-center justify-center">
+                    <span>Map Will Go Here</span>
+                  </div>
+                </div>
+                <div className="w-full md:w-1/3 lg:w-1/4">
+                  <span className="text-sm text-grey">Address:</span>
+                  <HTMLContent 
+                    content={location.address}
+                    className="content content--address"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div 
+          variants={item}
+          transition="easeInOut"
+        >
+          <div className="overflow-hidden">
+            <div className="container">
+              <div className="mb-5 md:mb-8">
+                <h3 className="mb-5 md:mb-3">Enquire</h3>
+                <p>Please get in touch to discuss your hire dates and space requirements.</p>
+              </div>
+              <Form />
             </div>
           </div>
         </motion.div>
@@ -116,10 +193,23 @@ export const query = graphql`
     location: datoCmsLocation(slug: { eq: $slug }) {
       title
       featuredImage {
-        fluid(imgixParams: {h: "1080", w: "1920"}) {
+        fluid(imgixParams: {h: "1080", w: "1920", fit: "crop", crop: "center"}) {
           ...GatsbyDatoCmsFluid
         }
       }
+      floors {
+        images {
+          fluid(imgixParams: {h: "600", w: "920"}) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        title
+        description
+        floorplan {
+          url
+        }
+      }
+      address
       totalCapacity
       totalUseableArea
       postcode

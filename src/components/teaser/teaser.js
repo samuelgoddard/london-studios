@@ -6,7 +6,7 @@ import Img from "gatsby-image"
 class Teaser extends React.Component {
   render() {
     return (
-      <Link className="m-teaser block relative" to={this.props.active ? `/locations/${this.props.slug}` : `/locations`}>
+      <Link className="m-teaser block relative" to={`/locations/${this.props.slug}`}>
         
         { !this.props.active && (
           <div className="absolute top-0 right-0 w-1/5 sm:w-1/6 md:w-1/4 lg:w-1/5 xl:w-1/6 z-10 mt-5 mr-5">
@@ -37,6 +37,7 @@ Teaser.defaultProps = {
   image: {},
   meta: ``,
   active: true,
+  disabled: true,
 }
 
 Teaser.propTypes = {
@@ -46,6 +47,7 @@ Teaser.propTypes = {
   image: PropTypes.object.isRequired,
   meta: PropTypes.string,
   active: PropTypes.bool,
+  disabled: PropTypes.bool,
 }
 
 export default Teaser
