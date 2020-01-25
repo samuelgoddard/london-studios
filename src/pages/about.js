@@ -52,7 +52,7 @@ const AboutPage = ({ data: { page }, location}) => {
             <Img fluid={page.heroImage.fluid} className="w-full mb-6 lg:mb-10" />
           </div>
 
-          <div className="container -mt-24 md:-mt-40 lg:-mt-56 xl:-mt-64 relative z-20">
+          <div className="container -mt-20 sm:-mt-24 md:-mt-40 lg:-mt-56 xl:-mt-64 relative z-20">
             <div className="mb-10 lg:mb-16 w-full max-w-xs lg:max-w-2xl">
               <h1 className="mb-3">{page.heroHeading}</h1>
             </div>

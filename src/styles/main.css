@@ -9,6 +9,7 @@
 @import './partials/_container.css';
 @import './partials/_typography.css';
 @import './partials/_forms.css';
+@import './partials/_logo.css';
 @import '../components/teaser/_teaser.css';
 
 /* Tailwind Utils */
@@ -28,8 +29,18 @@ body {
   }
 }
 
+.mobile-overlay {
+  padding-top: 26px;
+  padding-bottom: 27px;
+  @apply fixed top-0 left-0 right-0 bottom-0 bg-black overflow-hidden
+}
+
 .home-image {
-  max-width: 150px;
+  max-width: 120px;
+
+  @screen sm {
+    max-width: 150px !important;
+  }
 
   @screen md {
     max-width: 200px !important;

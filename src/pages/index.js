@@ -49,7 +49,7 @@ const IndexPage = ({ data: { home }, location }) => {
               <div className="absolute top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20">
                 <Img fluid={ home.overlaidImagery[0].fluid } className="w-full opacity-25" />
               </div>
-              <div className="absolute top-0 right-0 w-full home-image mr-12 -mt-6 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12">
+              <div className="absolute top-0 right-0 w-full home-image mr-6 mt-12 sm:-mt-6 sm:mr-12 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12">
                 <Img fluid={ home.overlaidImagery[1].fluid } className="w-full opacity-25" />
               </div>
               <div className="absolute bottom-0 left-0 w-full home-image mx-auto ml-40 -mb-16 md:ml-64 md:-mb-24 -lg:ml-64 lg:-mb-32">

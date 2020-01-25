@@ -1,0 +1,9 @@
+.logo {
+  width: 180px;
+  height: 15px;
+
+  @screen md {
+    width: 282px;
+    height: 24px;
+  }
+}

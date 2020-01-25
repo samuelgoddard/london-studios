@@ -48,7 +48,7 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
             <h1>Locations</h1>
             <div className="overflow-hidden">
               <TabList className="flex flex-wrap list-none">
-                <Tab className="mr-4 opacity-75">
+                <Tab className="mr-4 opacity-75 mb-2 md:mb-0">
                   <button className="block text-lg lg:text-xl uppercase focus:outline-none">Available Locations</button>
                 </Tab>
                 <Tab className="mr-0 opacity-75">
