@@ -39,10 +39,10 @@ const Footer = ({ className }) => (
             <h2 id="footermenulabel" className="sr-only">Footer Menu</h2>
             <ul>
               <li className="block">
-                <Link className="link no-underline" to="/contact/enquiry">Enquire About A Space</Link>
+                <Link className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" to="/contact/enquiry">Enquire About A Space</Link>
               </li>
               <li className="block">
-                <Link className="link no-underline" to="/contact">Get In Touch</Link>
+                <Link className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" to="/contact">Get In Touch</Link>
               </li>
             </ul>
           </nav>
@@ -53,10 +53,10 @@ const Footer = ({ className }) => (
             <h2 id="socialmenulabel" className="sr-only">Social Menu</h2>
             <ul className="md:text-right">
               <li className="block">
-              <a className="link no-underline" href="http://example.com" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
+              <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="http://example.com" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
               </li>
               <li className="block">
-                <a className="link no-underline" href="http://example.com" target="_blank" rel="noopener noreferrer">Follow On LinkedIn</a>
+                <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="http://example.com" target="_blank" rel="noopener noreferrer">Follow On LinkedIn</a>
               </li>
             </ul>
           </nav>

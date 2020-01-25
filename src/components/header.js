@@ -52,7 +52,7 @@ class Header extends React.Component {
             </Link>
 
             <div className="w-auto ml-auto">
-              <button className="bg-transpare border-none block md:hidden leading-none p-1" onClick={this.toggleOverlay}>
+              <button className="bg-transpare border-none block md:hidden leading-none p-1" aria-label="Open Mobile Menu" onClick={this.toggleOverlay}>
               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22px" height="22px" className="mt-px">
                 <g fill="#FFF">
                   <path d="M0,4  l0,2 21,0 0,-2z"/>
@@ -95,7 +95,7 @@ class Header extends React.Component {
                   </Link>
 
                   <div className="w-auto ml-auto">
-                    <button className="bg-transpare border-none block leading-none p-1" onClick={this.toggleOverlay}>
+                    <button className="bg-transpare border-none block leading-none p-1" aria-label="Close Mobile Menu" onClick={this.toggleOverlay}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" className="mt-1 ml-2" viewBox="0 0 18 18"><path fill="#FFF" d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/></svg>
                     </button>
                   </div>
