@@ -14,7 +14,7 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: this.props.locationForm ? new Date() : null,
+      startDate: new Date(),
       name: '',
       email: '',
       venue: '',
@@ -55,7 +55,7 @@ class Form extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-		const { name, email, venue, enquiry, startDate } = this.state;
+		const { name, email, enquiry, startDate } = this.state;
 		const color = { color: this.props.color }
     const bgColor = { backgroundColor: this.props.color }
 
@@ -100,7 +100,7 @@ class Form extends React.Component {
             <label htmlFor="venue" className="block">
               <span className="text-grey pb-1 block text-sm">Venue:</span>
 
-              <select name="venue" id="venue" className="input" defaultValue={venue} onBlur={this.handleChange}>
+              <select name="venue" id="venue" className="input" onBlur={this.handleChange}>
                 <option value="any">Venue</option>
                 <option value="spitalfields">Spitalfields</option>
                 <option value="new-oxford">New Oxford</option>
@@ -117,7 +117,7 @@ class Form extends React.Component {
               <DatePicker
                 className="input text-white w-full"
                 selected={startDate}
-                onChange={this.handleDate}
+                onChange={date => this.handleDate(date)} 
                 dateFormat="d MMMM yyyy"
               />
             </label>
