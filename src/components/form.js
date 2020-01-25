@@ -4,10 +4,12 @@ import { navigate } from "gatsby"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+function encode(data) {
+  const formData = new FormData();
+  for (const key of Object.keys(data)) {
+    formData.append(key, data[key]);
+  }
+  return formData;
 }
 
 class Form extends React.Component {
@@ -31,6 +33,16 @@ class Form extends React.Component {
       startDate: date
     });
   };
+
+  // handleSubTest = e => {
+  //   e.preventDefault();
+  //   console.log(encode({
+  //     body: encode({
+  //       "form-name": "Test",
+  //       ...this.state
+  //     })
+  //   }))
+  // }
 
   handleSubmit = e => {
     if (this.validator.allValid()) {
