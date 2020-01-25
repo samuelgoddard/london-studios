@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
 import { HTMLContent } from "../components/content"
-import Tilt from "react-parallax-tilt";
 
 const duration = 0.35
 
@@ -45,21 +44,12 @@ const IndexPage = ({ data: { home }, location }) => {
             variants={item}
             transition="easeInOut"
           >
-            <Tilt
-              scale={1.02}
-              transitionSpeed="15000"
-              tiltMaxAngleY="10"
-              tiltMaxAngleX="10"
-              perspective="5000"
-              className="w-full"
-            >
-              <div className="container">
-                <HTMLContent 
-                  content={home.introText}
-                  className="home-text block mb-0 pb-0"
-                />
-              </div>
-            </Tilt>
+            <div className="container">
+              <HTMLContent 
+                content={home.introText}
+                className="home-text block mb-0 pb-0"
+              />
+            </div>
           </motion.div>
         </motion.section>
       <Footer className="w-full h-32 md:h-24" />

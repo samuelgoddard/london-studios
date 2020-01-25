@@ -15,7 +15,6 @@ const encode = (data) => {
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleDate = this.handleDate.bind(this);
     this.state = {
       startDate: new Date(),
       name: '',
@@ -35,11 +34,6 @@ class Form extends React.Component {
       date: moment(date).format("MMM Do YYYY"),
     });
   };
-
-  // handleFake = e => {
-  //   e.preventDefault();
-  //   console.log(this.state);
-  // }
 
   handleSubmit = e => {
     if (this.validator.allValid()) {
