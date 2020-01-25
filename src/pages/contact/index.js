@@ -56,7 +56,9 @@ const ContactPage = ({ location }) => {
                 </div>
               </div>
             </div>
-            <GeneralForm color="#faf395"/>
+            <div className="w-full md:w-9/12">
+              <GeneralForm color="#faf395"/>
+            </div>
           </div>
         </motion.div>
       </motion.section>
