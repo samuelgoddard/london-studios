@@ -1,6 +1,8 @@
-import React from "react"
+import React, { Fragment } from "react"
 import SimpleReactValidator from "simple-react-validator"
-import { navigateTo } from "gatsby"
+import { navigate } from "gatsby"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
 
 const encode = (data) => {
   return Object.keys(data)
@@ -11,12 +13,24 @@ const encode = (data) => {
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      startDate: this.props.locationForm ? new Date() : null,
+      name: '',
+      email: '',
+      venue: '',
+      enquiry: ''
+    };
   }
 
   componentWillMount() {
     this.validator = new SimpleReactValidator();
   }
+
+  handleDate = date => {
+    this.setState({
+      startDate: date,
+    });
+  };
 
   handleSubmit = e => {
     if (this.validator.allValid()) {
@@ -29,7 +43,7 @@ class Form extends React.Component {
           ...this.state
         })
       })
-      .then(() => navigateTo(form.getAttribute("action")))
+      .then(() => navigate(form.getAttribute("action")))
       .catch(error => alert(error));
     } else {
       this.validator.showMessages();
@@ -41,23 +55,23 @@ class Form extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-		const { name, email, venue, date, enquiry } = this.state;
+		const { name, email, venue, enquiry, startDate } = this.state;
 		const color = { color: this.props.color }
-		const bgColor = { backgroundColor: this.props.color }
+    const bgColor = { backgroundColor: this.props.color }
+
     return (
       <form
-        name="Location Enquiry"
+        name={ this.props.formName }
         onSubmit={this.handleSubmit}
         className="block w-full overflow-hidden"
         method="post"
         action="/thank-you"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
       >
         <input type="hidden" className="hidden" name="form-name" value="contact" />
         
         <div className="flex flex-wrap md:-mx-4">
-					<div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
+        <div className={this.props.locationForm ? 'w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8' : 'w-full md:w-1/2 md:px-4 mb-5 md:mb-8'}>
 						<label htmlFor="name" className="block">
 							<span className="text-grey pb-1 block text-sm">Name:</span>
 							<input type="text" name="name" id="name" className="input" placeholder="Enter Name" value={name} onChange={this.handleChange} />
@@ -68,38 +82,48 @@ class Form extends React.Component {
 						</label>
 					</div>
 
-					<div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
+					<div className={this.props.locationForm ? 'w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8' : 'w-full md:w-1/2 md:px-4 mb-5 md:mb-8'}>
 						<label htmlFor="email" className="block">
 							<span className="text-grey pb-1 block text-sm">Email:</span>
 							<input type="email" name="email" id="email" className="input" placeholder="Enter Email" value={email} onChange={this.handleChange} />
 
 							<span style={color} className="block mt-2 text-sm">
-								{this.validator.message('email', name, 'required|email')}
+								{this.validator.message('email', email, 'required|email')}
 							</span>
 						</label>
 					</div>
 					
-					<div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
-						<label htmlFor="venue" className="block">
-							<span className="text-grey pb-1 block text-sm">Venue:</span>
-							<input type="text" name="venue" id="venue" className="input" placeholder="Venue" value={venue} onChange={this.handleChange} />
+          { this.props.locationForm && (
+            <Fragment>
+              <div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
+                <label htmlFor="venue" className="block">
+                  <span className="text-grey pb-1 block text-sm">Venue:</span>
 
-							<span style={color} className="block mt-2 text-sm">
-								{this.validator.message('venue', name, 'required')}
-							</span>
-						</label>
-					</div>
+                  <select name="venue" id="venue" className="input" defaultValue={venue} onBlur={this.handleChange}>
+                    <option value="any">Venue</option>
+                    <option value="spitalfields">Spitalfields</option>
+                    <option value="new-oxford">New Oxford</option>
+                    <option value="hammersmith">Hammersmith</option>
+                    <option value="chancery-lane">Chancery Lane</option>
+                  </select>
+                </label>
+              </div>
 
-					<div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
-						<label htmlFor="date" className="block">
-							<span className="text-grey pb-1 block text-sm">Date:</span>
-							<input type="text" name="date" id="date" className="input" placeholder="Date" value={date} onChange={this.handleChange} />
+              <div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
+                <label htmlFor="date" className="block">
+                  <span className="text-grey pb-1 block text-sm">Date:</span>
 
-							<span style={color} className="block mt-2 text-sm">
-								{this.validator.message('venue', name, 'required')}
-							</span>
-						</label>
-					</div>
+                  <DatePicker
+                    className="input text-white w-full"
+                    selected={startDate}
+                    onChange={this.handleDate}
+                    value={startDate}
+                    dateFormat="d MMMM yyyy"
+                  />
+                </label>
+              </div>
+            </Fragment>
+          )}
 				</div>
 
         <div className="flex flex-wrap items-end md:-mx-4">

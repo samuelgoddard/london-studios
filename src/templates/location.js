@@ -189,7 +189,7 @@ const LocationPage = ({ data: { current }, location}) => {
                 <h3 className="mb-5 md:mb-3">Enquire</h3>
                 <p>Please get in touch to discuss your hire dates and space requirements.</p>
               </div>
-              <Form color={current.color.hex} />
+              <Form locationForm={true} formName="Location Enquiry" color={current.color.hex} />
             </div>
           </div>
         </motion.div>

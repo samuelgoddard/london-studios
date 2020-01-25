@@ -25,6 +25,7 @@ h1, .h1 {
 
 .home-text {
   font-size: 38px !important;
+  @apply p-0 leading-none font-display;
   
   @screen md {
     @apply text-center;
@@ -39,7 +40,7 @@ h1, .h1 {
     font-size: 80px !important;
   }
 
-  span {
+  strong {
     @apply font-sans font-light;
     font-size: 43px !important;
     
