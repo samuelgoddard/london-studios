@@ -18,6 +18,16 @@ body {
   @apply bg-black text-white uppercase text-base;
 }
 
+.min-h-maxed {
+  min-height: calc(100vh - 180px);
+  @apply pt-40 pb-16;
+
+  @screen md {
+    min-height: calc(100vh - 100px);
+    @apply pt-32;
+  }
+}
+
 .image-gradient {
   height: 45%;
   background: rgb(2,0,36);

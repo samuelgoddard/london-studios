@@ -21,19 +21,19 @@ const item = {
   },
 }
 
-const Footer = () => (
+const Footer = ({ className }) => (
   <motion.footer
     variants={container}
     initial="hidden" 
     animate="visible"
-    className="pt-12 pb-8 md:pt-20 md:pb-16"
+    className={className ? className : `pt-12 pb-8 md:pt-20 md:pb-16 w-full`}
   >
     <motion.div 
       className="container"
       variants={item}
       transition="easeInOut"
     >
-      <div className="flex flex-wrap items-center mb-4">
+      <div className="flex flex-wrap items-center">
         <div className="w-full md:w-auto">
           <nav aria-labelledby="footermenulabel">
             <h2 id="footermenulabel" className="sr-only">Footer Menu</h2>

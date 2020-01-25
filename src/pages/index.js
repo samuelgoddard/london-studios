@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { motion } from "framer-motion"
+import Footer from "../components/footer"
 
 const duration = 0.35
 
@@ -36,21 +37,19 @@ const IndexPage = ({ data: { home }, location }) => {
         variants={container}
         initial="hidden" 
         animate="visible"
-        className="container pt-40 md:pt-48"
+        className=""
       >
         <motion.div 
-          className="content w-full md:w-2/3"
+          className="w-full min-h-maxed flex flex-wrap items-center"
           variants={item}
           transition="easeInOut"
         >
-
-          <h1>{home.title}</h1>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-          <h2>Lorem ipsum</h2>
-          
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div className="container">
+            <h1 className="home-text block mb-0 pb-0"><span>London Studios</span> deliver the <span>newest venues</span> for temporary <span>events</span>, activations and <span>spaces for</span> photographic hire.</h1>
+          </div>
         </motion.div>
+        
+        <Footer className="w-full h-32 md:h-24" />
       </motion.section>
     </>
   )

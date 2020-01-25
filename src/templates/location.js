@@ -5,6 +5,7 @@ import Form from "../components/form"
 import { HTMLContent } from "../components/content"
 import Img from "gatsby-image"
 import { motion } from "framer-motion"
+import Footer from "../components/footer"
 
 const duration = 0.35
 
@@ -193,6 +194,8 @@ const LocationPage = ({ data: { current }, location}) => {
           </div>
         </motion.div>
       </motion.section>
+
+      <Footer />
     </>
   )
 }

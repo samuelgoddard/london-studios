@@ -18,8 +18,42 @@ h1, .h1 {
     @apply text-6xl;
   }
   
-  @screen lg {
+  @screen xl {
     @apply text-7xl;
+  }
+}
+
+.home-text {
+  font-size: 38px !important;
+  
+  @screen md {
+    @apply text-center;
+    font-size: 53px !important;
+  }
+
+  @screen lg {
+    font-size: 70px !important;
+  }
+  
+  @screen 2xl {
+    font-size: 80px !important;
+  }
+
+  span {
+    @apply font-sans font-light;
+    font-size: 43px !important;
+    
+    @screen md {
+      font-size: 60px !important;
+    }
+
+    @screen lg {
+      font-size: 80px !important;
+    }
+
+    @screen 2xl {
+      font-size: 90px !important;
+    }
   }
 }
 

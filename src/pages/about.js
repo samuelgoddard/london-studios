@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import { HTMLContent } from "../components/content"
 import { motion } from "framer-motion"
+import Footer from "../components/footer"
 
 const duration = 0.35
 
@@ -70,6 +71,8 @@ const AboutPage = ({ data: { page }, location}) => {
           </div>
         </motion.div>
       </motion.section>
+
+      <Footer />
     </>
   )
 }

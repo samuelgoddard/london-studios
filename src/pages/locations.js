@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import Teaser from "../components/teaser/teaser"
 import { motion } from "framer-motion"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Footer from "../components/footer"
 
 const duration = 0.35
 
@@ -117,6 +118,8 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
           </motion.div>
         </Tabs>
       </motion.section>
+
+      <Footer />
     </>
   )
 }

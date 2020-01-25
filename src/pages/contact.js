@@ -2,6 +2,7 @@ import React from "react"
 // import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { motion } from "framer-motion"
+import Footer from "../components/footer"
 
 const duration = 0.35
 
@@ -49,6 +50,8 @@ const ContactPage = ({ location }) => {
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </motion.div>
       </motion.section>
+
+      <Footer />
     </>
   )
 }
