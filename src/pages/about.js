@@ -42,7 +42,7 @@ const AboutPage = ({ data: { page }, location}) => {
         className=""
       >
         <motion.div 
-          className="mb-16 md:mb-32"
+          className="mb-16 md:mb-24"
           variants={item}
           transition="easeInOut"
         >
@@ -70,6 +70,59 @@ const AboutPage = ({ data: { page }, location}) => {
             </div>
           </div>
         </motion.div>
+        
+        <motion.div 
+          className="mb-10 md:mb-32 overflow-hidden"
+          variants={item}
+          transition="easeInOut"
+        >
+          <div className="container">
+            <div className="flex flex-wrap items-end mb-8 md:mb-12">
+              <div className="w-full md:w-5/12 text-right">
+                <div className="w-10/12 md:w-64 ml-auto md:mr-12 mb-6 md:mb-0">
+                  <span className="font-display text-2xl md:text-3xl xl:text-4xl ml-auto leading-tight">{page.supportingImage1Text}</span>
+                </div>
+              </div>
+              <div className="w-full md:w-7/12">
+                <Img fluid={page.supportingImage1.fluid} className="w-full max-w-full" />
+              </div>
+            </div>
+
+            <div className="flex flex-wrap md:-mx-6">
+              <div className="w-full md:w-9/12 md:px-6">
+                <Img fluid={page.supportingImage2.fluid} className="w-full max-w-full mb-8" />
+                <HTMLContent 
+                  content={page.supportingImage2Text}
+                  className="css-cols content mb-8 md:mb-0"
+                />
+              </div>
+              <div className="w-full md:w-3/12 md:px-6">
+                <Img fluid={page.supportingImage3.fluid} className="w-full max-w-full mb-6" />
+                <HTMLContent 
+                  content={page.supportingImage3Text}
+                  className="text-sm md:text-xs lg:text-sm mb-8 md:mb-0"
+                />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="mb-8 md:mb-12"
+          variants={item}
+          transition="easeInOut"
+        >
+          <div className="container">
+            <div className="flex flex-wrap">
+              <div className="w-full md:w-auto text-left">
+                <span className="vertical block font-display text-2xl md:text-3xl xl:text-4xl ml-auto leading-tight mr-0 md:mr-6 mb-3 md:mb-0">{page.footerText}</span>
+              </div>
+              <div className="w-full md:flex-1">
+                <Img fluid={page.footerImage.fluid} className="w-full max-w-full" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </motion.section>
 
       <Footer />
@@ -90,13 +143,30 @@ export const query = graphql`
       }
       heroHeading
       introduction
-      supportingText
       footerText
       footerImage {
         fluid(imgixParams: {h: "1080", w: "1920"}) {
           ...GatsbyDatoCmsFluid
         }
       }
+      supportingImage1 {
+        fluid(imgixParams: {h: "600", w: "900"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      supportingImage1Text
+      supportingImage2 {
+        fluid(imgixParams: {h: "700", w: "1100"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      supportingImage2Text
+      supportingImage3 {
+        fluid(imgixParams: {h: "600", w: "400"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      supportingImage3Text
       metaTags {
         title
         description

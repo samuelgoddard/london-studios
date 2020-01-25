@@ -42,6 +42,14 @@ body {
 }
 
 /*! purgecss start ignore */
+.vertical {
+  @screen md {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    max-height: 400px;
+  }
+}
+
 .tab__panel {
   opacity: 0;
   
