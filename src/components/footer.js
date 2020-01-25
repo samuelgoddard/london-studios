@@ -39,7 +39,7 @@ const Footer = ({ className }) => (
             <h2 id="footermenulabel" className="sr-only">Footer Menu</h2>
             <ul>
               <li className="block">
-                <Link className="link no-underline" to="/locations">Enquire About A Space</Link>
+                <Link className="link no-underline" to="/contact/enquiry">Enquire About A Space</Link>
               </li>
               <li className="block">
                 <Link className="link no-underline" to="/contact">Get In Touch</Link>

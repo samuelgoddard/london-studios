@@ -56,6 +56,7 @@ class Form extends React.Component {
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  selectChange = e => this.setState({ venue: e.target.value });
 
   render() {
 		const { name, email, enquiry, startDate } = this.state;
@@ -103,7 +104,7 @@ class Form extends React.Component {
             <label htmlFor="venue" className="block">
               <span className="text-grey pb-1 block text-sm">Venue:</span>
 
-              <select name="venue" id="venue" className="input" onBlur={this.handleChange}>
+              <select name="venue[]" id="venue" className="input" onBlur={this.selectChange}>
                 <option value="all">Venue</option>
                 <option value="spitalfields">Spitalfields</option>
                 <option value="newoxford">New Oxford</option>
