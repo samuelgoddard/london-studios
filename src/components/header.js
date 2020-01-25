@@ -101,32 +101,22 @@ class Header extends React.Component {
                   </div>
                 </div>
                 <div className="h-full pb-24">
-                  <nav aria-labelledby="mobileMenuLabel" className="block h-full flex flex-wrap items-center">
-                    <h2 id="mobileMenuLabel" className="sr-only">Mobile Menu</h2>
-                    <ul className="w-full">
-                      <li className="w-full block mb-2">
-                        <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/locations" partiallyActive={true}>Locations</Link>
-                      </li>
-                      <li className="w-full block mb-2">
-                        <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/about" partiallyActive={true}>About</Link>
-                      </li>
-                      <li className="w-full block mb-2">
-                        <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/contact" partiallyActive={true}>Contact</Link>
-                      </li>
-                    </ul>
-                  </nav>
-
-                  <nav aria-labelledby="socialmenulabelmobile" className="mb-8">
-                    <h2 id="socialmenulabelmobile" className="sr-only">Social Mobile Menu</h2>
-                    <ul className="block">
-                      <li className="block">
-                        <a className="link no-underline" href="http://example.com" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
-                      </li>
-                      <li className="block">
-                        <a className="link no-underline" href="http://example.com" target="_blank" rel="noopener noreferrer">Follow On LinkedIn</a>
-                      </li>
-                    </ul>
-                  </nav>
+                  <div className="block h-full flex flex-wrap items-center">
+                    <nav aria-labelledby="mobileMenuLabel">
+                      <h2 id="mobileMenuLabel" className="sr-only">Mobile Menu</h2>
+                      <ul className="w-full">
+                        <li className="w-full block mb-2">
+                          <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/locations" partiallyActive={true}>Locations</Link>
+                        </li>
+                        <li className="w-full block mb-2">
+                          <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/about" partiallyActive={true}>About</Link>
+                        </li>
+                        <li className="w-full block mb-2">
+                          <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/contact" partiallyActive={true}>Contact</Link>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
                 </div>
               </div>
             </Overlay>

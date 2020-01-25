@@ -20,7 +20,7 @@ body {
 }
 
 .min-h-maxed {
-  min-height: calc(100vh - 180px);
+  min-height: calc(100vh - 130px);
   @apply pt-40 pb-16;
 
   @screen md {
