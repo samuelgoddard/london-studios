@@ -1,8 +1,6 @@
 import React from "react"
 import SimpleReactValidator from "simple-react-validator"
 import { navigate } from "gatsby"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css";
 
 const encode = (data) => {
   return Object.keys(data)
@@ -10,14 +8,12 @@ const encode = (data) => {
     .join("&");
 }
 
-class Form extends React.Component {
+class GeneralForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: this.props.locationForm ? new Date() : null,
       name: '',
       email: '',
-      venue: '',
       enquiry: ''
     };
   }
@@ -25,12 +21,6 @@ class Form extends React.Component {
   componentWillMount() {
     this.validator = new SimpleReactValidator();
   }
-
-  handleDate = date => {
-    this.setState({
-      startDate: date
-    });
-  };
 
   handleSubmit = e => {
     if (this.validator.allValid()) {
@@ -55,13 +45,13 @@ class Form extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-		const { name, email, venue, enquiry, startDate } = this.state;
+		const { name, email, enquiry } = this.state;
 		const color = { color: this.props.color }
     const bgColor = { backgroundColor: this.props.color }
 
     return (
       <form
-        name="Location Enquiry"
+        name="General Enquiry Form"
         onSubmit={this.handleSubmit}
         className="block w-full overflow-hidden"
         method="post"
@@ -71,7 +61,7 @@ class Form extends React.Component {
         <input type="hidden" className="hidden" name="form-name" value="contact" />
         
         <div className="flex flex-wrap md:-mx-4">
-          <div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
+          <div className="w-full md:w-1/2 md:px-4 mb-5 md:mb-8">
 						<label htmlFor="name" className="block">
 							<span className="text-grey pb-1 block text-sm">Name:</span>
 							<input type="text" name="name" id="name" className="input" placeholder="Enter Name" value={name} onChange={this.handleChange} />
@@ -82,7 +72,7 @@ class Form extends React.Component {
 						</label>
 					</div>
 
-          <div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
+					<div className="w-full md:w-1/2 md:px-4 mb-5 md:mb-8">
 						<label htmlFor="email" className="block">
 							<span className="text-grey pb-1 block text-sm">Email:</span>
 							<input type="email" name="email" id="email" className="input" placeholder="Enter Email" value={email} onChange={this.handleChange} />
@@ -92,33 +82,6 @@ class Form extends React.Component {
 							</span>
 						</label>
 					</div>
-      
-          <div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
-            <label htmlFor="venue" className="block">
-              <span className="text-grey pb-1 block text-sm">Venue:</span>
-
-              <select name="venue" id="venue" className="input" defaultValue={venue} onBlur={this.handleChange}>
-                <option value="any">Venue</option>
-                <option value="spitalfields">Spitalfields</option>
-                <option value="new-oxford">New Oxford</option>
-                <option value="hammersmith">Hammersmith</option>
-                <option value="chancery-lane">Chancery Lane</option>
-              </select>
-            </label>
-          </div>
-
-          <div className="w-full md:w-1/2 lg:w-1/4 md:px-4 mb-5 md:mb-8">
-            <label htmlFor="date" className="block">
-              <span className="text-grey pb-1 block text-sm">Date:</span>
-
-              <DatePicker
-                className="input text-white w-full"
-                selected={startDate}
-                onChange={this.handleDate}
-                dateFormat="d MMMM yyyy"
-              />
-            </label>
-          </div>
 				</div>
 
         <div className="flex flex-wrap items-end md:-mx-4">
@@ -137,4 +100,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form
+export default GeneralForm

@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
 import Form from "../components/form"
+import GeneralForm from "../components/generalForm"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 const duration = 0.35
@@ -64,10 +65,10 @@ const ContactPage = ({ location }) => {
             transition="easeInOut"
           >
             <TabPanel className="tab__panel">
-              <Form formName="Location Enquiry" locationForm={true} color="#faf395"/>
+              <Form locationForm={true} color="#faf395"/>
             </TabPanel>
             <TabPanel className="tab__panel">
-              <Form formName="General Enquiry" color="#faf395"/>
+              <GeneralForm color="#faf395"/>
             </TabPanel>
           </motion.div>
         </Tabs>

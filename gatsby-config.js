@@ -24,7 +24,7 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true, 
-        whitelistPatterns: [/is-active/],
+        whitelistPatterns: [/is-active/, /react-datepicker/],
       }
     },
     `gatsby-transformer-sharp`,
