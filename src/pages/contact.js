@@ -50,10 +50,10 @@ const ContactPage = ({ location }) => {
             <div className="overflow-hidden mb-12">
               <TabList className="flex flex-wrap list-none">
                 <Tab className="mr-4 opacity-75">
-                  <button className="block text-lg lg:text-xl uppercase focus:outline-none">Location Enquiry</button>
+                  <button className="block text-lg lg:text-xl uppercase focus:outline-none">General Enquiry</button>
                 </Tab>
                 <Tab className="mr-0 opacity-75">
-                  <button className="block text-lg lg:text-xl uppercase focus:outline-none">General Enquiry</button>
+                  <button className="block text-lg lg:text-xl uppercase focus:outline-none">Location Enquiry</button>
                 </Tab>
               </TabList>
             </div>
@@ -65,10 +65,10 @@ const ContactPage = ({ location }) => {
             transition="easeInOut"
           >
             <TabPanel className="tab__panel">
-              <Form locationForm={true} color="#faf395"/>
+              <GeneralForm color="#faf395"/>
             </TabPanel>
             <TabPanel className="tab__panel">
-              <GeneralForm color="#faf395"/>
+              <Form locationForm={true} color="#faf395"/>
             </TabPanel>
           </motion.div>
         </Tabs>

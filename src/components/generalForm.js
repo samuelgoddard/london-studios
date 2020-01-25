@@ -57,8 +57,11 @@ class GeneralForm extends React.Component {
         method="post"
         action="/thank-you"
         data-netlify="true"
+        netlify-honeypot="bot-field"
       >
-        <input type="hidden" className="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </p>
         
         <div className="flex flex-wrap md:-mx-4">
           <div className="w-full md:w-1/2 md:px-4 mb-5 md:mb-8">
