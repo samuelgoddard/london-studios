@@ -17,7 +17,7 @@ class Form extends React.Component {
       startDate: new Date(),
       name: '',
       email: '',
-      venue: '',
+      venue: null,
       enquiry: ''
     };
   }
@@ -69,7 +69,7 @@ class Form extends React.Component {
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
-        <p class="hidden">
+        <p className="hidden">
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </p>
         
@@ -100,7 +100,7 @@ class Form extends React.Component {
             <label htmlFor="venue" className="block">
               <span className="text-grey pb-1 block text-sm">Venue:</span>
 
-              <select name="venue" id="venue" className="input" onBlur={this.handleChange}>
+              <select name="venue[]" id="venue" className="input" onBlur={this.handleChange}>
                 <option value="any">Venue</option>
                 <option value="spitalfields">Spitalfields</option>
                 <option value="new-oxford">New Oxford</option>
@@ -115,6 +115,7 @@ class Form extends React.Component {
               <span className="text-grey pb-1 block text-sm">Date:</span>
 
               <DatePicker
+                name="date"
                 className="input text-white w-full"
                 selected={startDate}
                 onChange={date => this.handleDate(date)} 

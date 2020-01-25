@@ -59,7 +59,7 @@ class GeneralForm extends React.Component {
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
-        <p class="hidden">
+        <p className="hidden">
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </p>
         
