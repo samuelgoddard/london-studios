@@ -17,7 +17,7 @@ class Form extends React.Component {
       startDate: new Date(),
       name: '',
       email: '',
-      venue: null,
+      venue: '',
       enquiry: ''
     };
   }
@@ -100,7 +100,7 @@ class Form extends React.Component {
             <label htmlFor="venue" className="block">
               <span className="text-grey pb-1 block text-sm">Venue:</span>
 
-              <select name="venue[]" id="venue" className="input" onBlur={this.handleChange}>
+              <select name="venue" id="venue" className="input" onBlur={this.handleChange}>
                 <option value="any">Venue</option>
                 <option value="spitalfields">Spitalfields</option>
                 <option value="new-oxford">New Oxford</option>
