@@ -1,20 +1,21 @@
 import React from "react"
 import SimpleReactValidator from "simple-react-validator"
 import { navigate } from "gatsby"
+
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment"
 
-function encode(data) {
-  const formData = new FormData();
-  for (const key of Object.keys(data)) {
-    formData.append(key, data[key]);
-  }
-  return formData;
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
 }
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
+    // this.handleDate = this.handleDate.bind(this);
     this.state = {
       startDate: new Date(),
       name: '',
@@ -30,18 +31,14 @@ class Form extends React.Component {
 
   handleDate = date => {
     this.setState({
-      startDate: date
+      startDate: date,
+      date: moment(date).format("MMM Do YYYY"),
     });
   };
 
-  // handleSubTest = e => {
+  // handleFake = e => {
   //   e.preventDefault();
-  //   console.log(encode({
-  //     body: encode({
-  //       "form-name": "Test",
-  //       ...this.state
-  //     })
-  //   }))
+  //   console.log(this.state);
   // }
 
   handleSubmit = e => {
@@ -113,11 +110,11 @@ class Form extends React.Component {
               <span className="text-grey pb-1 block text-sm">Venue:</span>
 
               <select name="venue" id="venue" className="input" onBlur={this.handleChange}>
-                <option value="any">Venue</option>
+                <option value="all">Venue</option>
                 <option value="spitalfields">Spitalfields</option>
-                <option value="new-oxford">New Oxford</option>
+                <option value="newoxford">New Oxford</option>
                 <option value="hammersmith">Hammersmith</option>
-                <option value="chancery-lane">Chancery Lane</option>
+                <option value="chancerylane">Chancery Lane</option>
               </select>
             </label>
           </div>
