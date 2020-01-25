@@ -36,46 +36,34 @@ const ContactEnquiryPage = ({ location }) => {
         variants={container}
         initial="hidden" 
         animate="visible"
-        className="container pt-40 md:pt-48"
       >
         <motion.div 
-          className="mb-6 lg:mb-10"
+          className="w-full min-h-maxed flex flex-wrap items-center "
           variants={item}
           transition="easeInOut"
         >
-          <h1>Get In Touch</h1>
-          <div className="overflow-hidden mb-12">
-            <div className="flex flex-wrap list-none">
-              <div className="mr-4 opacity-75">
-                <Link to="/contact" className="block text-lg lg:text-xl uppercase focus:outline-none">General Enquiry</Link>
-              </div>
-              <div className="mr-0 text-white border-b border-cream opacity-100">
-                <Link to="/contact/enquiry" className="block text-lg lg:text-xl uppercase focus:outline-none">Location Enquiry</Link>
+          <div className="container w-full">
+            <div className="w-full">
+              <h1>Get In Touch</h1>
+              <div className="overflow-hidden mb-12">
+                <div className="flex flex-wrap list-none">
+                  <div className="mr-4 opacity-75">
+                    <Link to="/contact" className="block text-lg lg:text-xl uppercase focus:outline-none">General Enquiry</Link>
+                  </div>
+                  <div className="mr-0 text-white border-b border-cream opacity-100">
+                    <Link to="/contact/enquiry" className="block text-lg lg:text-xl uppercase focus:outline-none">Location Enquiry</Link>
+                  </div>
+                </div>
               </div>
             </div>
+            <Form locationForm={true} color="#faf395"/>
           </div>
-        </motion.div>
-        
-        <motion.div 
-          className="overflow-hidden w-full md:w-10/12"
-          variants={item}
-          transition="easeInOut"
-        >
-          <Form locationForm={true} color="#faf395"/>
         </motion.div>
       </motion.section>
 
-      <Footer />
+      <Footer className="w-full h-32 md:h-24" />
     </>
   )
 }
 
 export default ContactEnquiryPage
-
-// export const query = graphql`
-//   query IndexQuery {
-//     home: datoCmsHome {
-//       title
-//     }
-//   }
-// `

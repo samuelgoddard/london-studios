@@ -24,8 +24,12 @@ h1, .h1 {
 }
 
 .home-text {
-  font-size: 38px !important;
+  font-size: 30px !important;
   @apply p-0 leading-none font-display;
+  
+  @screen sm {
+    font-size: 38px !important;
+  }
   
   @screen md {
     @apply text-center;
@@ -33,6 +37,10 @@ h1, .h1 {
   }
 
   @screen lg {
+    font-size: 60px !important;
+  }
+  
+  @screen xl {
     font-size: 70px !important;
   }
   
@@ -42,13 +50,21 @@ h1, .h1 {
 
   strong {
     @apply font-sans font-light;
-    font-size: 43px !important;
+    font-size: 34px !important;
+    
+    @screen sm {
+      font-size: 46px !important;
+    }
     
     @screen md {
       font-size: 60px !important;
     }
 
     @screen lg {
+      font-size: 70px !important;
+    }
+
+    @screen xl {
       font-size: 80px !important;
     }
 

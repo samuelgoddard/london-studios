@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
 import { HTMLContent } from "../components/content"
+import Img from "gatsby-image"
 
 const duration = 0.35
 
@@ -40,14 +41,23 @@ const IndexPage = ({ data: { home }, location }) => {
           className=""
         >
           <motion.div 
-            className="w-full min-h-maxed flex flex-wrap items-center"
+            className="w-full min-h-maxed flex flex-wrap items-center "
             variants={item}
             transition="easeInOut"
           >
-            <div className="container">
+            <div className="container relative z-0">
+              <div className="absolute top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20">
+                <Img fluid={ home.overlaidImagery[0].fluid } className="w-full opacity-25" />
+              </div>
+              <div className="absolute top-0 right-0 w-full home-image mr-12 -mt-6 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12">
+                <Img fluid={ home.overlaidImagery[1].fluid } className="w-full opacity-25" />
+              </div>
+              <div className="absolute bottom-0 left-0 w-full home-image mx-auto ml-40 -mb-16 md:ml-64 md:-mb-24 -lg:ml-64 lg:-mb-32">
+                <Img fluid={ home.overlaidImagery[2].fluid } className="w-full opacity-25 xl:ml-32" />
+              </div>
               <HTMLContent 
                 content={home.introText}
-                className="home-text block mb-0 pb-0"
+                className="home-text block mb-0 pb-0 relative z-10"
               />
             </div>
           </motion.div>
@@ -64,6 +74,11 @@ export const query = graphql`
     home: datoCmsHome {
       title
       introText
+      overlaidImagery {
+        fluid(imgixParams: {h: "600", w: "920"}) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       metaTags {
         title
         description

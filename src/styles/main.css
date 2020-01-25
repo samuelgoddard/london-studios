@@ -28,6 +28,22 @@ body {
   }
 }
 
+.home-image {
+  max-width: 150px;
+
+  @screen md {
+    max-width: 200px !important;
+  }
+  
+  @screen lg {
+    max-width: 280px !important;
+  }
+
+  @screen xl {
+    max-width: 360px !important;
+  }
+}
+
 .image-gradient {
   height: 45%;
   background: rgb(2,0,36);
