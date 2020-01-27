@@ -25,10 +25,6 @@ h1, .h1 {
   @screen xl {
     @apply text-7xl;
   }
-  
-  @screen 2xl {
-    @apply text-8xl;
-  }
 }
 
 .home-text {

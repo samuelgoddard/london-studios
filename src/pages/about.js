@@ -55,7 +55,7 @@ const AboutPage = ({ data: { page }, location}) => {
 
           <div className="container image-gradient-title relative z-20">
             <div className="mb-10 lg:mb-16 w-full max-w-md lg:max-w-2xl 2xl:max-w-4xl">
-              <h1 className="mb-3">{page.heroHeading}</h1>
+              <h1 className="mb-3 2xl:text-8xl">{page.heroHeading}</h1>
             </div>
 
             <div className="flex flex-wrap">
