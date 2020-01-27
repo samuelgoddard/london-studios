@@ -1,9 +1,21 @@
 .input {
-  @apply w-full block border-b-2 border-grey appearance-none bg-transparent uppercase text-lg;
+  @apply w-full block border-b-2 border-grey appearance-none bg-transparent uppercase text-xl leading-none;
   border-radius: 0;
   -webkit-appearance: none;
 
   &:focus {
     @apply outline-none border-cream;
   }
+
+  @screen lg {
+    @apply text-2xl;
+  }
+}
+
+textarea {
+  @apply leading-none;
+}
+
+input::placeholder, textarea::placeholder {
+  @apply text-grey;
 }

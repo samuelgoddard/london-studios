@@ -12,7 +12,7 @@ const container = {
   visible: {
     transition: {
       when: 'beforeChildren',
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       delayChildren: duration,
     },
   },
@@ -20,6 +20,7 @@ const container = {
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
+    transition: { type: "spring", stiffness: 20 },
     y: 0,
     opacity: 1,
   },
@@ -48,11 +49,11 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
             <h1>Locations</h1>
             <div className="overflow-hidden">
               <TabList className="flex flex-wrap list-none">
-                <Tab className="mr-4 opacity-75 mb-2 md:mb-0">
-                  <button className="block text-lg lg:text-xl uppercase focus:outline-none">Available Locations</button>
+                <Tab className="mr-4 opacity-75 pb-0">
+                  <button className="block text-lg lg:text-xl uppercase focus:outline-none pb-0">Available Locations</button>
                 </Tab>
-                <Tab className="mr-0 opacity-75">
-                  <button className="block text-lg lg:text-xl uppercase focus:outline-none">Archive Locations</button>
+                <Tab className="mr-0 opacity-75 pb-0 block">
+                  <button className="block text-lg lg:text-xl uppercase focus:outline-none pb-0">Archive Locations</button>
                 </Tab>
               </TabList>
             </div>

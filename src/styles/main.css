@@ -19,6 +19,10 @@ body {
   @apply bg-black text-white uppercase text-base;
 }
 
+button {
+  line-height: 1;
+}
+
 .min-h-maxed {
   min-height: calc(100vh - 130px);
   @apply pt-40 pb-16;
@@ -29,6 +33,10 @@ body {
   }
 }
 
+#mad-text {
+  @apply font-display !important;
+}
+
 .mobile-overlay {
   padding-top: 26px;
   padding-bottom: 27px;
@@ -37,6 +45,14 @@ body {
 
 .home-image {
   max-width: 120px;
+  opacity: 0.2;
+  transform-origin: center;
+  @apply transition;
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.75;
+  }
 
   @screen sm {
     max-width: 150px !important;

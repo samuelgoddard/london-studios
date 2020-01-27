@@ -17,6 +17,7 @@ const container = {
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
+    transition: { type: "spring", stiffness: 20 },
     y: 0,
     opacity: 1,
   },

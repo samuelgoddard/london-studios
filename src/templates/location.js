@@ -51,11 +51,13 @@ const LocationPage = ({ data: { current }, location}) => {
           <div className="relative">
             <div className="image-gradient absolute bottom-0 left-0 right-0 w-full z-10">
             </div>
-            <Img fluid={current.featuredImage.fluid} className="w-full mb-6 lg:mb-10" />
+            <Img fluid={current.featuredImage.fluid} className="w-full mb-6 lg:mb-10 pb-64 md:pb-24 lg:pb-32 xl:pb-0" />
           </div>
-          <div className="container -mt-12 md:-mt-20 lg:-mt-32 xl:-mt-48 relative z-20">
+
+          <div className="container -mt-32 md:-mt-40 lg:-mt-56 xl:-mt-64 relative z-20">
             <div className="mb-10 lg:mb-16">
               <h1 className="mb-3">Studio <span style={color}>{current.title}</span></h1>
+
               <div className="text-base md:text-lg lg:text-xl md:flex md:flex-wrap">
                 <div className="w-full md:w-auto md:pr-5">
                   <span>Useable Area: {current.totalUseableArea}</span>
@@ -73,7 +75,7 @@ const LocationPage = ({ data: { current }, location}) => {
               <div className="w-full md:w-2/3">
                 <HTMLContent 
                   content={current.introductionText}
-                  className="text-xl md:text-2xl lg:text-3xl leading-snug"
+                  className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl leading-snug"
                 />
               </div>
               <div className="w-full md:w-1/3">
@@ -108,7 +110,7 @@ const LocationPage = ({ data: { current }, location}) => {
                         className="content content--floor mb-4 md:mb-6"
                       />
                       { floorplan && (
-                        <a href={floorplan.url} target="_blank" rel="noopener noreferrer" style={color} className="underline">&darr; Download Floorplans</a>
+                        <a href={floorplan.url} target="_blank" rel="noopener noreferrer" style={color} className="underline">Download Floorplans</a>
                       )}
                     </div>
                   </div>

@@ -9,12 +9,12 @@
 }
 
 .m-teaser__title {
-  margin-top: -35px;
+  margin-top: -36px;
   line-height: 0.8;
   @apply mb-0 pb-0;
 
   @screen lg {
-    margin-top: -47px;
+    margin-top: -49px;
   }
 }
 

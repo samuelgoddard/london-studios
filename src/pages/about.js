@@ -20,6 +20,7 @@ const container = {
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
+    transition: { type: "spring", stiffness: 20 },
     y: 0,
     opacity: 1,
   },
@@ -49,11 +50,11 @@ const AboutPage = ({ data: { page }, location}) => {
           <div className="relative">
             <div className="image-gradient absolute bottom-0 left-0 right-0 w-full z-10">
             </div>
-            <Img fluid={page.heroImage.fluid} className="w-full mb-6 lg:mb-10" />
+            <Img fluid={page.heroImage.fluid} className="w-full mb-6 lg:mb-10 pb-64 md:pb-24 lg:pb-32 xl:pb-0" />
           </div>
 
-          <div className="container -mt-20 sm:-mt-24 md:-mt-40 lg:-mt-56 xl:-mt-64 relative z-20">
-            <div className="mb-10 lg:mb-16 w-full max-w-xs lg:max-w-2xl">
+          <div className="container -mt-32 md:-mt-40 lg:-mt-56 xl:-mt-64 relative z-20">
+            <div className="mb-10 lg:mb-16 w-full max-w-md lg:max-w-2xl 2xl:max-w-4xl">
               <h1 className="mb-3">{page.heroHeading}</h1>
             </div>
 
@@ -79,8 +80,8 @@ const AboutPage = ({ data: { page }, location}) => {
           <div className="container">
             <div className="flex flex-wrap items-end mb-8 md:mb-12">
               <div className="w-full md:w-5/12 text-right">
-                <div className="w-10/12 md:w-64 ml-auto md:mr-12 mb-6 md:mb-0">
-                  <span className="font-display text-2xl md:text-3xl xl:text-4xl ml-auto leading-tight">{page.supportingImage1Text}</span>
+                <div className="w-9/12 ml-auto md:mr-12 mb-6 md:mb-0">
+                  <span className="font-display text-3xl lg:text-4xl xl:text-5xl ml-auto leading-tight">{page.supportingImage1Text}</span>
                 </div>
               </div>
               <div className="w-full md:w-7/12">
@@ -93,14 +94,14 @@ const AboutPage = ({ data: { page }, location}) => {
                 <Img fluid={page.supportingImage2.fluid} className="w-full max-w-full mb-8" />
                 <HTMLContent 
                   content={page.supportingImage2Text}
-                  className="css-cols content mb-8 md:mb-0"
+                  className="css-cols mb-8 md:mb-0 text-lg lg:text-xl"
                 />
               </div>
               <div className="w-full md:w-3/12 md:px-6">
                 <Img fluid={page.supportingImage3.fluid} className="w-full max-w-full mb-6" />
                 <HTMLContent 
                   content={page.supportingImage3Text}
-                  className="text-sm md:text-xs lg:text-sm mb-8 md:mb-0"
+                  className="text-sm md:text-sm lg:text-base mb-8 md:mb-0"
                 />
               </div>
             </div>

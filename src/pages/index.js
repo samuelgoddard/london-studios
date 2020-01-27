@@ -1,10 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
-import { HTMLContent } from "../components/content"
+// import { HTMLContent } from "../components/content"
 import Img from "gatsby-image"
+import SplitText from "react-pose-text"
 
 const duration = 0.35
 
@@ -20,12 +21,21 @@ const container = {
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
+    transition: { type: "spring", stiffness: 20 },
     y: 0,
     opacity: 1,
   },
 }
+const charPoses = {
+  exit: { opacity: 0, y: 10 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 30
+  }
+};
 
-const IndexPage = ({ data: { home }, location }) => {
+const IndexPage = ({ data: { home, locations }, location }) => {
   return (
     <>
       <SEO
@@ -36,7 +46,7 @@ const IndexPage = ({ data: { home }, location }) => {
       />
         <motion.section
           variants={container}
-          initial="hidden" 
+          initial="hidden"
           animate="visible"
           className=""
         >
@@ -45,20 +55,37 @@ const IndexPage = ({ data: { home }, location }) => {
             variants={item}
             transition="easeInOut"
           >
-            <div className="container relative z-0">
-              <div className="absolute top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20">
-                <Img fluid={ home.overlaidImagery[0].fluid } className="w-full opacity-25" />
+            <div className="container relative z-10">
+              <div
+                className="absolute z-10 top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20 opacity-25"
+              >
+                <Link to={`locations/${locations.edges[0].node.slug}`}>
+                  <Img fluid={ locations.edges[0].node.teaserImage.fluid } className="w-full" />
+                </Link>
               </div>
-              <div className="absolute top-0 right-0 w-full home-image mr-6 mt-12 sm:-mt-6 sm:mr-12 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12">
-                <Img fluid={ home.overlaidImagery[1].fluid } className="w-full opacity-25" />
+              <div
+                className="absolute z-10 top-0 right-0 w-full home-image mr-6 mt-12 sm:-mt-6 sm:mr-12 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12 opacity-25"
+              >
+                <Link to={`locations/${locations.edges[1].node.slug}`}>
+                  <Img fluid={ locations.edges[1].node.teaserImage.fluid } className="w-full" />
+                </Link>
               </div>
-              <div className="absolute bottom-0 left-0 w-full home-image mx-auto ml-40 -mb-16 md:ml-64 md:-mb-24 -lg:ml-64 lg:-mb-32">
-                <Img fluid={ home.overlaidImagery[2].fluid } className="w-full opacity-25 xl:ml-32" />
+              <div
+                className="absolute z-10 bottom-0 left-0 w-full home-image mx-auto ml-40 -mb-16 md:ml-64 md:-mb-24 -lg:ml-64 lg:-mb-32 opacity-25"
+              >
+                <Link to={`locations/${locations.edges[2].node.slug}`}>
+                  <Img fluid={ locations.edges[2].node.teaserImage.fluid } className="w-full xl:ml-32" />
+                </Link>
               </div>
-              <HTMLContent 
+
+              {/* <HTMLContent 
                 content={home.introText}
                 className="home-text block mb-0 pb-0 relative z-10"
-              />
+              /> */}
+
+              <span className="home-text block mb-0 pb-0 relative z-0">
+                <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>London Studios deliver the newest venues for temporary events, activations and spaces for photographic hire.</SplitText>
+              </span>
             </div>
           </motion.div>
         </motion.section>
@@ -85,6 +112,18 @@ export const query = graphql`
         twitterCard
         image {
           url
+        }
+      }
+    }
+    locations: allDatoCmsLocation(limit: 3, filter: {archived: {eq: false}}) {
+      edges {
+        node {
+          teaserImage {
+            fluid(imgixParams: {h: "1200", w: "900"}) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          slug
         }
       }
     }

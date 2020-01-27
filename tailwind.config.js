@@ -32,13 +32,14 @@ module.exports = {
       'sm': '.875rem',
       'base': '1rem',
       'lg': '1.125rem',
-      'xl': '1.25rem',
+      'xl': '1.3125rem',
       '2xl': '1.5rem',
       '3xl': '1.875rem',
-      '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '4rem',
+      '4xl': '2.5rem',
+      '5xl': '3.125rem',
+      '6xl': '4.25rem',
       '7xl': '5.625rem',
+      '8xl': '7.5rem',
     },
     extend: {
       fontFamily: {

@@ -21,15 +21,19 @@ h1, .h1 {
   @screen lg {
     @apply text-6xl;
   }
-  
+
   @screen xl {
     @apply text-7xl;
+  }
+  
+  @screen 2xl {
+    @apply text-8xl;
   }
 }
 
 .home-text {
   font-size: 30px !important;
-  @apply p-0 leading-none font-display;
+  @apply p-0 leading-none font-display text-center;
   
   @screen sm {
     font-size: 38px !important;
@@ -92,6 +96,10 @@ h3, .h3 {
   @screen lg {
     @apply text-5xl;
   }
+
+  @screen xl {
+    @apply text-6xl;
+  }
 }
 
 /* Link */
@@ -112,7 +120,11 @@ h3, .h3 {
   
   /* Paragraph */
   p {
-    @apply mb-6;
+    @apply mb-6 text-lg;
+  
+    @screen lg {
+      @apply text-xl;
+    }
   }
 
   /* Headings following paragraphs */
@@ -131,15 +143,15 @@ h3, .h3 {
 
 .content--floor {
   p {
-    @apply text-base;
+    @apply text-lg;
 
     @screen md {
-      @apply text-lg;
+      @apply text-xl;
     }
   }
   ul {
     li {
-      @apply text-sm;
+      @apply text-base;
     }
   }
 }

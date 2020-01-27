@@ -65,19 +65,19 @@ class Header extends React.Component {
                 <h2 id="mainmenulabel" className="sr-only">Main Menu</h2>
                 <ul>
                   <li className="inline-block ml-0 md:ml-2 mx-1 md:mx-2">
-                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent" to="/locations" partiallyActive={true}>Locations</Link>
+                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-lg" to="/locations" partiallyActive={true}>Locations</Link>
                   </li>
                   <li className="inline-block mx-1 md:mx-2">
                     •
                   </li>
                   <li className="inline-block mx-1 md:mx-2">
-                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent" to="/about" partiallyActive={true}>About</Link>
+                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-lg" to="/about" partiallyActive={true}>About</Link>
                   </li>
                   <li className="inline-block mx-1 md:mx-2">
                     •
                   </li>
                   <li className="inline-block mx-1 md:mx-2 md:mr-0">
-                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent" to="/contact" partiallyActive={true}>Contact</Link>
+                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-lg" to="/contact" partiallyActive={true}>Contact</Link>
                   </li>
                 </ul>
               </nav>

@@ -26,7 +26,9 @@
     "react-icons": "^3.7.0",
     "react-parallax-tilt": "^1.3.37",
     "react-pose": "^4.0.10",
+    "react-pose-text": "^3.1.0",
     "react-tabs": "^3.1.0",
+    "react-text-fun": "^1.0.0",
     "simple-react-validator": "^1.4.4",
     "tailwindcss-transitions": "^2.1.0"
   },

@@ -19,6 +19,7 @@ const container = {
 const item = {
   hidden: { y: 20, opacity: 0 },
   visible: {
+    transition: { type: "spring", stiffness: 20 },
     y: 0,
     opacity: 1,
   },
@@ -47,11 +48,11 @@ const ContactPage = ({ location }) => {
               <h1>Get In Touch</h1>
               <div className="overflow-hidden mb-12">
                 <div className="flex flex-wrap list-none">
-                  <div className="mr-4 text-white border-b border-cream opacity-100 mb-2 md:mb-0">
-                    <Link to="/contact" className="block text-lg lg:text-xl uppercase focus:outline-none">General Enquiry</Link>
+                  <div className="mr-4 text-white border-b border-cream opacity-100 mb-2 md:mb-0 block">
+                    <Link to="/contact" className="block text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">General Enquiry</Link>
                   </div>
-                  <div className="mr-0 opacity-75">
-                    <Link to="/contact/enquiry" className="block text-lg lg:text-xl uppercase focus:outline-none">Location Enquiry</Link>
+                  <div className="mr-0 opacity-75 pb-0">
+                    <Link to="/contact/enquiry" className="block text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">Location Enquiry</Link>
                   </div>
                 </div>
               </div>
