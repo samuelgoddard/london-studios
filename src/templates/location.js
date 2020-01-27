@@ -209,13 +209,17 @@ export const query = graphql`
     current: datoCmsLocation(slug: { eq: $slug }) {
       title
       featuredImage {
-        fluid(imgixParams: {h: "1080", w: "1920", fit: "crop", crop: "center"}) {
+        fluid(
+          maxWidth: 1920
+          imgixParams: {h: "1080", w: "1920", fit: "crop", crop: "center"}) {
           ...GatsbyDatoCmsFluid
         }
       }      
       floors {
         images {
-          fluid(imgixParams: {h: "600", w: "920"}) {
+          fluid(
+            maxWidth: 1920
+            imgixParams: {h: "600", w: "920"}) {
             ...GatsbyDatoCmsFluid
           }
         }
