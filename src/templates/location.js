@@ -56,7 +56,8 @@ const LocationPage = ({ data: { current }, location}) => {
 
           <div className="container image-gradient-title relative z-20">
             <div className="mb-10 lg:mb-16">
-              <h1 className="mb-3">Studio <span style={color}>{current.title}</span></h1>
+              <h1 className="mb-3">
+                Studio <span style={color}>{current.title}</span></h1>
 
               <div className="text-base md:text-lg lg:text-xl md:flex md:flex-wrap">
                 <div className="w-full md:w-auto md:pr-5">

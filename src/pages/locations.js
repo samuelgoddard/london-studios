@@ -5,6 +5,7 @@ import Teaser from "../components/teaser/teaser"
 import { motion } from "framer-motion"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Footer from "../components/footer"
+import SplitText from "react-pose-text"
 
 const duration = 0.35
 
@@ -25,6 +26,14 @@ const item = {
     opacity: 1,
   },
 }
+const charPoses = {
+  exit: { opacity: 0, y: 10 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 80
+  }
+};
 
 const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
   return (
@@ -46,7 +55,8 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
             variants={item}
             transition="easeInOut"
           >
-            <h1>Locations</h1>
+            <h1>
+            <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Locations</SplitText></h1>
             <div className="overflow-hidden">
               <TabList className="flex flex-wrap list-none">
                 <Tab className="mr-4 opacity-75 pb-0">

@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { HTMLContent } from "../components/content"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
+import SplitText from "react-pose-text"
 
 const duration = 0.35
 
@@ -25,6 +26,14 @@ const item = {
     opacity: 1,
   },
 }
+const charPoses = {
+  exit: { opacity: 0, y: 10 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 50
+  }
+};
 
 const AboutPage = ({ data: { page }, location}) => {
   return (
@@ -55,7 +64,11 @@ const AboutPage = ({ data: { page }, location}) => {
 
           <div className="container image-gradient-title relative z-20">
             <div className="mb-10 lg:mb-16 w-full max-w-md lg:max-w-2xl 2xl:max-w-4xl">
-              <h1 className="mb-3 2xl:text-8xl">{page.heroHeading}</h1>
+              <h1 className="mb-3 2xl:text-8xl">
+                <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+                  {page.heroHeading}
+                </SplitText>
+              </h1>
             </div>
 
             <div className="flex flex-wrap">

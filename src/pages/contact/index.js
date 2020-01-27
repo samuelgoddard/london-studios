@@ -4,6 +4,7 @@ import SEO from "../../components/seo"
 import { motion } from "framer-motion"
 import Footer from "../../components/footer"
 import GeneralForm from "../../components/generalForm"
+import SplitText from "react-pose-text"
 
 const duration = 0.35
 
@@ -24,6 +25,14 @@ const item = {
     opacity: 1,
   },
 }
+const charPoses = {
+  exit: { opacity: 0, y: 10 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 65
+  }
+};
 
 const ContactPage = ({ location }) => {
   return (
@@ -45,7 +54,7 @@ const ContactPage = ({ location }) => {
         >
           <div className="container w-full">
             <div className="w-full">
-              <h1>Get In Touch</h1>
+              <h1><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Get In Touch</SplitText></h1>
               <div className="overflow-hidden mb-12">
                 <div className="flex flex-wrap list-none">
                   <div className="mr-4 text-white border-b border-cream opacity-100 mb-2 md:mb-0 block">

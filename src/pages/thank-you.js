@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
+import SplitText from "react-pose-text"
 
 const duration = 0.35
 
@@ -22,6 +23,14 @@ const item = {
     opacity: 1,
   },
 }
+const charPoses = {
+  exit: { opacity: 0, y: 10 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 50
+  }
+};
 
 const ThankYouPage = ({ location }) => {
   return (
@@ -43,7 +52,8 @@ const ThankYouPage = ({ location }) => {
           transition="easeInOut"
         >
           <div className="container">
-            <span className="home-text block mb-0 pb-0">Thank you for your message, we'll be in touch as soon as possible.</span>
+            <span className="home-text block mb-0 pb-0">
+            <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Thank you for your message, we'll be in touch as soon as possible.</SplitText></span>
           </div>
         </motion.div>
         
