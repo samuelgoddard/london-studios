@@ -77,6 +77,10 @@ button {
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);
 }
 
+.image-gradient-title {
+  margin-top: -17%;
+}
+
 .css-cols {
   @screen md {
     column-count: 2;
