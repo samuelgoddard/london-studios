@@ -56,15 +56,18 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
             transition="easeInOut"
           >
             <h1>
-            <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Locations</SplitText></h1>
+            <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Locations</SplitText></h1>            
+            
             <div className="overflow-hidden">
               <TabList className="flex flex-wrap list-none">
-                <Tab className="mr-4 opacity-75 pb-0">
-                  <button className="block text-lg lg:text-xl uppercase focus:outline-none pb-0">Available Locations</button>
+                <Tab className="mr-4 opacity-75 pb-0 mb-2 md:mb-0">
+                  <button className="block text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Available Locations</button>
                 </Tab>
-                <Tab className="mr-0 opacity-75 pb-0 block">
-                  <button className="block text-lg lg:text-xl uppercase focus:outline-none pb-0">Archive Locations</button>
-                </Tab>
+                { archivedLocations.edges.length > 0 && (
+                  <Tab className="mr-0 opacity-75 pb-0 block">
+                    <button className="block text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Archive Locations</button>
+                  </Tab>
+                )}
               </TabList>
             </div>
             
@@ -100,32 +103,34 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
                 })}
               </div>
             </TabPanel>
-            <TabPanel className="tab__panel">
-              <div className="flex flex-wrap md:-mx-4">
-                {archivedLocations.edges.map(({node}, index) => {
-                  let metaCombined = [
-                    `Useable Area: ${node.totalUseableArea}`,
-                    `Capacity: ${node.totalCapacity}`,
-                    `Postcode: ${node.postcode}`
-                  ]
-                  let meta = metaCombined.join(`\u00A0\u00A0\u00A0\u00A0`);
-                  return (
-                    <div className="w-full md:w-1/2 md:px-4 mb-8 md:mb-16" key={index}>
-                      <Teaser
-                        slug={node.slug}
-                        titlePrefix="Studio"
-                        title={node.title}
-                        image={node.teaserImage.fluid}
-                        meta={meta}
-                        disabled={true}
-                        active={false}
-                        color={node.color.hex}
-                      />
-                    </div>
-                  )
-                })}
-              </div>
-            </TabPanel>
+            { archivedLocations.edges.length > 0 && (
+              <TabPanel className="tab__panel">
+                <div className="flex flex-wrap md:-mx-4">
+                  {archivedLocations.edges.map(({node}, index) => {
+                    let metaCombined = [
+                      `Useable Area: ${node.totalUseableArea}`,
+                      `Capacity: ${node.totalCapacity}`,
+                      `Postcode: ${node.postcode}`
+                    ]
+                    let meta = metaCombined.join(`\u00A0\u00A0\u00A0\u00A0`);
+                    return (
+                      <div className="w-full md:w-1/2 md:px-4 mb-8 md:mb-16" key={index}>
+                        <Teaser
+                          slug={node.slug}
+                          titlePrefix="Studio"
+                          title={node.title}
+                          image={node.teaserImage.fluid}
+                          meta={meta}
+                          disabled={true}
+                          active={false}
+                          color={node.color.hex}
+                        />
+                      </div>
+                    )
+                  })}
+                </div>
+              </TabPanel>
+            )}
           </motion.div>
         </Tabs>
       </motion.section>
