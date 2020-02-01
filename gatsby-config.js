@@ -27,8 +27,16 @@ module.exports = {
         whitelistPatterns: [/is-active/, /react-datepicker/],
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-157129656-1",
+        anonymize: true,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

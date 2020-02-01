@@ -3,9 +3,12 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Form from "../components/form"
 import { HTMLContent } from "../components/content"
+import Carousel from "../components/carousel"
 import Img from "gatsby-image"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
+import Map from "../components/map"
+
 
 const duration = 0.35
 
@@ -73,15 +76,21 @@ const LocationPage = ({ data: { current }, location}) => {
             </div>
 
             <div className="flex flex-wrap">
-              <div className="w-full md:w-2/3">
+              <div className="w-full md:w-2/3 mb-8 md:mb-0">
                 <HTMLContent 
                   content={current.introductionText}
                   className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl leading-snug"
                 />
               </div>
-              <div className="w-full md:w-1/3">
-
-              </div>
+              { current.locationTag && (
+                <div className="w-full hidden md:block md:w-1/3 md:text-right">
+                  <span className={current.locationTag === 'central' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>Central { current.locationTag === 'central' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'north' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>North { current.locationTag === 'north' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'south' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>South { current.locationTag === 'south' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'east' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>East { current.locationTag === 'east' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'west' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>West { current.locationTag === 'west' && (<>•</>)}</span>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
@@ -95,15 +104,16 @@ const LocationPage = ({ data: { current }, location}) => {
             {current.floors.map(({images, title, description, floorplan}, index) => (
               <div
                 className="mb-16 md:mb-32"
+                data-sal="fade" data-sal-delay="50" data-sal-easing="ease"
                 key={index}
               >
                 <h3 className={ index % 2 ? `text-right` : ``}>{title}</h3>
                 <div className="overflow-hidden">
                   <div className="flex flex-wrap md:-mx-6">
                     <div className={ index % 2 ? `order-1 md:order-2 w-full md:w-1/2 lg:w-2/3 md:px-6 mb-8 md:mb-0` : `order-1 md:order-2 w-full md:w-1/2 lg:w-2/3 md:px-6 mb-8 md:mb-0`}>
-                      {images.map(({fluid}, index) => (
-                        <Img fluid={fluid} key={index} className="w-full" />
-                      ))}
+                      <Carousel
+                        images={images}
+                      />
                     </div>
                     <div className={ index % 2 ? `order-2 md:order-1 w-full md:w-1/2 lg:w-1/3 md:px-6` : `order-1 md:order-2 w-full md:w-1/2 lg:w-1/3 md:px-6`}>
                       <HTMLContent 
@@ -127,7 +137,7 @@ const LocationPage = ({ data: { current }, location}) => {
             transition="easeInOut"
             className="mb-10 md:mb-32"
           >
-            <div className="container">
+            <div className="container" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
               <div className="overflow-hidden">
                 <div className="flex flex-wrap md:-mx-6 lg:-mx-12">
                   { current.hireRates && (
@@ -161,13 +171,13 @@ const LocationPage = ({ data: { current }, location}) => {
             transition="easeInOut"
             className="mb-16 md:mb-32"
           >
-            <div className="overflow-hidden">
+            <div className="overflow-hidden" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
               <div className="container">
                 <h3>Location</h3>
                 <div className="flex flex-wrap md:-mx-6">
                   <div className="w-full md:w-2/3 lg:w-3/4 mb-4 md:mb-0 md:px-6">
-                    <div className="w-full h-64 bg-grey opacity-75 flex flex-wrap items-center justify-center">
-                      <span>Map Will Go Here</span>
+                    <div className="w-full h-100 lg:h-124 bg-grey opacity-75 flex flex-wrap items-center justify-center">
+                      <Map longitude={current.location.longitude} latitude={current.location.latitude} />
                     </div>
                   </div>
                   <div className="w-full md:w-1/3 lg:w-1/4">
@@ -186,7 +196,7 @@ const LocationPage = ({ data: { current }, location}) => {
           variants={item}
           transition="easeInOut"
         >
-          <div className="overflow-hidden">
+          <div className="overflow-hidden" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
             <div className="container">
               <div className="mb-5 md:mb-8">
                 <h3 className="mb-5 md:mb-3">Enquire</h3>
@@ -209,6 +219,7 @@ export const query = graphql`
   query LocationQuery($slug: String!) {
     current: datoCmsLocation(slug: { eq: $slug }) {
       title
+      locationTag
       featuredImage {
         fluid(
           maxWidth: 1920
@@ -244,6 +255,10 @@ export const query = graphql`
         image {
           url
         }
+      }
+      location {
+        latitude
+        longitude
       }
       color {
         hex

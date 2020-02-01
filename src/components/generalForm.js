@@ -66,7 +66,7 @@ class GeneralForm extends React.Component {
         <div className="flex flex-wrap md:-mx-4">
           <div className="w-full md:w-1/2 md:px-4 mb-5 md:mb-8">
 						<label htmlFor="name" className="block">
-							<span className="text-grey pb-1 block text-base">Name:</span>
+							<span className="text-black pb-1 block text-base">Name:</span>
 							<input type="text" name="name" id="name" className="input" placeholder="Enter Name" value={name} onChange={this.handleChange} />
 
 							<span style={color} className="block mt-2 text-sm">
@@ -77,7 +77,7 @@ class GeneralForm extends React.Component {
 
 					<div className="w-full md:w-1/2 md:px-4 mb-5 md:mb-8">
 						<label htmlFor="email" className="block">
-							<span className="text-grey pb-1 block text-base">Email:</span>
+							<span className="text-black pb-1 block text-base">Email:</span>
 							<input type="email" name="email" id="email" className="input" placeholder="Enter Email" value={email} onChange={this.handleChange} />
 
 							<span style={color} className="block mt-2 text-sm">
@@ -90,7 +90,7 @@ class GeneralForm extends React.Component {
         <div className="flex flex-wrap items-end md:-mx-4">
 					<div className="w-full md:flex-1 md:px-4">
 						<label htmlFor="enquiry" className="block mb-5 md:mb-0">
-							<span className="text-grey pb-1 block text-base">Additional Information:</span>
+							<span className="text-black pb-1 block text-base">Additional Information:</span>
 							<textarea id="enquiry" name="enquiry" className="input mb-0" rows="4" value={enquiry} onChange={this.handleChange} placeholder="Enter Additional Information..."></textarea>
 						</label>
 					</div>

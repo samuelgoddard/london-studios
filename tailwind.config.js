@@ -46,6 +46,10 @@ module.exports = {
         sans: ['Founders Grotesk','Helvetica','Arial','sans-serif'],
         display: ['Bon Vivant','Georgia','Times','Times New Roman','serif']
       },
+      height: {
+        '100': '20rem',
+        '124': '30rem'
+      }
     }
   },
   plugins: [
