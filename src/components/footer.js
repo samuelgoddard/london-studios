@@ -56,9 +56,9 @@ const Footer = ({ className }) => (
               <li className="block">
               <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.instagram.com/londoneventstudios/" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
               </li>
-              {/* <li className="block">
-                <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="http://example.com" target="_blank" rel="noopener noreferrer">Follow On LinkedIn</a>
-              </li> */}
+              <li className="block">
+                <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.linkedin.com/company/london-studios-uk/" target="_blank" rel="noopener noreferrer">Follow On LinkedIn</a>
+              </li>
             </ul>
           </nav>
         </div>
