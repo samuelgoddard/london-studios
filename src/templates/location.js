@@ -7,7 +7,7 @@ import Carousel from "../components/carousel"
 import Img from "gatsby-image"
 import { motion } from "framer-motion"
 import Footer from "../components/footer"
-import Map from "../components/map"
+import MapNew from "../components/mapnew"
 
 
 const duration = 0.35
@@ -177,7 +177,7 @@ const LocationPage = ({ data: { current }, location}) => {
                 <div className="flex flex-wrap md:-mx-6">
                   <div className="w-full md:w-2/3 lg:w-3/4 mb-4 md:mb-0 md:px-6">
                     <div className="w-full h-100 lg:h-124 bg-grey opacity-75 flex flex-wrap items-center justify-center">
-                      <Map longitude={current.location.longitude} latitude={current.location.latitude} />
+                      <MapNew longitude={current.location.longitude} latitude={current.location.latitude} />
                     </div>
                   </div>
                   <div className="w-full md:w-1/3 lg:w-1/4">
