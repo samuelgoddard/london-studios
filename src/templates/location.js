@@ -104,7 +104,7 @@ const LocationPage = ({ data: { current }, location}) => {
             {current.floors.map(({images, title, description, floorplan}, index) => (
               <div
                 className="mb-16 md:mb-32"
-                data-sal="fade" data-sal-delay="50" data-sal-easing="ease"
+                data-sal="fade" data-sal-delay="0" data-sal-easing="ease"
                 key={index}
               >
                 <h3 className={ index % 2 ? `text-right` : ``}>{title}</h3>
@@ -137,7 +137,7 @@ const LocationPage = ({ data: { current }, location}) => {
             transition="easeInOut"
             className="mb-10 md:mb-32"
           >
-            <div className="container" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
+            <div className="container" data-sal="fade" data-sal-delay="0" data-sal-easing="ease">
               <div className="overflow-hidden">
                 <div className="flex flex-wrap md:-mx-6 lg:-mx-12">
                   { current.hireRates && (
@@ -171,7 +171,7 @@ const LocationPage = ({ data: { current }, location}) => {
             transition="easeInOut"
             className="mb-16 md:mb-32"
           >
-            <div className="overflow-hidden" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
+            <div className="overflow-hidden" data-sal="fade" data-sal-delay="0" data-sal-easing="ease">
               <div className="container">
                 <h3>Location</h3>
                 <div className="flex flex-wrap md:-mx-6">
@@ -196,7 +196,7 @@ const LocationPage = ({ data: { current }, location}) => {
           variants={item}
           transition="easeInOut"
         >
-          <div className="overflow-hidden" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
+          <div className="overflow-hidden" data-sal="fade" data-sal-delay="0" data-sal-easing="ease">
             <div className="container">
               <div className="mb-5 md:mb-8">
                 <h3 className="mb-5 md:mb-3">Enquire</h3>
