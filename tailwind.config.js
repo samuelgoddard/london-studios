@@ -42,6 +42,11 @@ module.exports = {
       '8xl': '7.5rem',
     },
     extend: {
+      lineHeight: {
+        'm': '1.6rem',
+        'col': '3rem',
+        'heading': '3.125rem',
+      },
       fontFamily: {
         sans: ['Founders Grotesk','Helvetica','Arial','sans-serif'],
         display: ['Bon Vivant','Georgia','Times','Times New Roman','serif']

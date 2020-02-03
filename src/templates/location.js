@@ -79,7 +79,7 @@ const LocationPage = ({ data: { current }, location}) => {
               <div className="w-full md:w-2/3 mb-8 md:mb-0">
                 <HTMLContent 
                   content={current.introductionText}
-                  className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl leading-snug"
+                  className="text-3xl md:text-3xl lg:text-4xl 2xl:text-4xl leading-snug lg:leading-col normal-case"
                 />
               </div>
               { current.locationTag && (

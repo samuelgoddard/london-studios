@@ -137,7 +137,7 @@ class Form extends React.Component {
 						</label>
 					</div>
 					<div className="w-full md:w-auto md:px-4">
-          	<button type="submit" style={bgColor} className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block w-full">Submit</button>
+          	<button type="submit" className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block bg-cream w-full">Submit</button>
 					</div>
         </div>
       </form>

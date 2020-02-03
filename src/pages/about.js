@@ -94,7 +94,7 @@ const AboutPage = ({ data: { page }, location}) => {
             <div className="flex flex-wrap items-end mb-8 md:mb-12" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
               <div className="w-full md:w-5/12 text-right">
                 <div className="w-9/12 ml-auto md:mr-12 mb-6 md:mb-0">
-                  <span className="font-display text-3xl lg:text-4xl xl:text-5xl ml-auto leading-tight">{page.supportingImage1Text}</span>
+                  <span className="font-display text-3xl lg:text-4xl xl:text-5xl ml-auto leading-heading">{page.supportingImage1Text}</span>
                 </div>
               </div>
               <div className="w-full md:w-7/12">
