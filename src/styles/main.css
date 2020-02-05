@@ -210,4 +210,14 @@ button {
   opacity: 1;
 }
 
+[data-sal|='fade'] {
+  transition: all ease 1500ms !important;
+  transform: translateY(20px);
+}
+
+[data-sal|='fade'].sal-animate,
+body.sal-disabled [data-sal|='fade'] {
+  transform: translateY(0px);
+}
+
 /*! purgecss end ignore */

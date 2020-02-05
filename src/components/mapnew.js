@@ -3,14 +3,14 @@ import React from 'react'
 
 class MapNew extends React.Component {
   createMap() {
-    const zoom = 12
+    const zoom = 14
     const iconSize = 0.5
     const coordinates = [this.props.longitude, this.props.latitude]
 
     const map = new mapboxgl.Map({
       center: coordinates,
       container: 'map',
-      style: 'mapbox://styles/mapbox/dark-v10',
+      style: 'mapbox://styles/samuelgoddard/ck67yhp4c0ome1is7rb6anlcp',
       zoom: zoom,
     })
 
