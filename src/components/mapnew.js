@@ -3,7 +3,7 @@ import React from 'react'
 
 class MapNew extends React.Component {
   createMap() {
-    const zoom = 14
+    const zoom = 15
     const iconSize = 0.5
     const coordinates = [this.props.longitude, this.props.latitude]
 
