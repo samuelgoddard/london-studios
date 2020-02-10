@@ -57,10 +57,10 @@ const ContactPage = ({ location }) => {
               <h1><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Get In Touch</SplitText></h1>
               <div className="overflow-hidden mb-12">
                 <div className="flex flex-wrap list-none">
-                  <div className="mr-2 md:mr-4 text-white border-b border-cream opacity-100 mb-2 md:mb-0 block">
+                  <div className="mr-2 md:mr-4 text-white border-b border-cream opacity-100 mb-2 md:mb-0 block pt-px">
                     <Link to="/contact" className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">General Enquiry</Link>
                   </div>
-                  <div className="mr-0 opacity-75 pb-0">
+                  <div className="mr-0 opacity-75 pb-0 pt-px">
                     <Link to="/contact/enquiry" className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">Location Enquiry</Link>
                   </div>
                 </div>

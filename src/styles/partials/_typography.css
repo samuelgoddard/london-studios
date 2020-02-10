@@ -160,6 +160,6 @@ h3, .h3 {
 
 .content--address {
   p {
-    @apply mb-0 text-base;
+    @apply mb-0 text-lg;
   }
 }

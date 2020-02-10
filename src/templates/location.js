@@ -84,11 +84,11 @@ const LocationPage = ({ data: { current }, location}) => {
               </div>
               { current.locationTag && (
                 <div className="w-full hidden md:block md:w-1/3 md:text-right">
-                  <span className={current.locationTag === 'central' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>Central { current.locationTag === 'central' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'north' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>North { current.locationTag === 'north' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'south' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>South { current.locationTag === 'south' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'east' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>East { current.locationTag === 'east' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'west' ? `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl 2xl:text-5xl font-display text-grey`}>West { current.locationTag === 'west' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'central' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>Central { current.locationTag === 'central' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'north' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>North { current.locationTag === 'north' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'south' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>South { current.locationTag === 'south' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'east' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>East { current.locationTag === 'east' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'west' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>West { current.locationTag === 'west' && (<>•</>)}</span>
                 </div>
               )}
             </div>
@@ -181,7 +181,7 @@ const LocationPage = ({ data: { current }, location}) => {
                     </div>
                   </div>
                   <div className="w-full md:w-1/3 lg:w-1/4">
-                    <span className="text-sm text-grey">Address:</span>
+                    <span className="text-sm text-grey block mb-2">Address:</span>
                     <HTMLContent 
                       content={current.address}
                       className="content content--address"
