@@ -91,10 +91,10 @@ const AboutPage = ({ data: { page }, location}) => {
           transition="easeInOut"
         >
           <div className="container">
-            <div className="flex flex-wrap items-end mb-8 md:mb-12" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
+            <div className="flex flex-wrap items-end mb-8 md:mb-12" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
               <div className="w-full md:w-5/12 text-right">
                 <div className="w-9/12 ml-auto md:mr-12 mb-6 md:mb-0">
-                  <span className="font-display text-3xl lg:text-4xl xl:text-5xl ml-auto leading-tight">{page.supportingImage1Text}</span>
+                  <span className="font-display text-3xl lg:text-4xl xl:text-5xl ml-auto leading-heading">{page.supportingImage1Text}</span>
                 </div>
               </div>
               <div className="w-full md:w-7/12">
@@ -102,15 +102,15 @@ const AboutPage = ({ data: { page }, location}) => {
               </div>
             </div>
 
-            <div className="flex flex-wrap md:-mx-6" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
+            <div className="flex flex-wrap md:-mx-6" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
               <div className="w-full md:w-9/12 md:px-6">
                 <Img fluid={page.supportingImage2.fluid} className="w-full max-w-full mb-8" />
                 <HTMLContent 
                   content={page.supportingImage2Text}
-                  className="css-cols mb-8 md:mb-0 text-lg lg:text-xl normal-case"
+                  className="css-cols mb-8 md:mb-0 text-lg lg:text-xl normal-case md:leading-m"
                 />
               </div>
-              <div className="w-full md:w-3/12 md:px-6" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
+              <div className="w-full md:w-3/12 md:px-6" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
                 <Img fluid={page.supportingImage3.fluid} className="w-full max-w-full mb-6" />
                 <HTMLContent 
                   content={page.supportingImage3Text}
@@ -126,7 +126,7 @@ const AboutPage = ({ data: { page }, location}) => {
           variants={item}
           transition="easeInOut"
         >
-          <div className="container" data-sal="fade" data-sal-delay="50" data-sal-easing="ease">
+          <div className="container" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
             <div className="flex flex-wrap">
               <div className="w-full md:w-auto text-left">
                 <span className="vertical block font-display text-2xl md:text-3xl xl:text-4xl ml-auto leading-tight mr-0 md:mr-6 mb-3 md:mb-0">{page.footerText}</span>

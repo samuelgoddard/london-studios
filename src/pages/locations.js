@@ -60,12 +60,12 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
             
             <div className="overflow-hidden">
               <TabList className="flex flex-wrap list-none">
-                <Tab className="mr-4 opacity-75 pb-0 mb-2 md:mb-0">
-                  <button className="block text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Available Locations</button>
+                <Tab className="mr-2 md:mr-4 opacity-75 pb-0 mb-2 md:mb-0 pt-px">
+                  <button className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Available Locations</button>
                 </Tab>
                 { archivedLocations.edges.length > 0 && (
-                  <Tab className="mr-0 opacity-75 pb-0 block">
-                    <button className="block text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Archive Locations</button>
+                  <Tab className="mr-0 opacity-75 pb-0 block pt-px">
+                    <button className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Archive Locations</button>
                   </Tab>
                 )}
               </TabList>
@@ -122,6 +122,7 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
                           image={node.teaserImage.fluid}
                           meta={meta}
                           disabled={true}
+                          archived={true}
                           active={false}
                           color={node.color.hex}
                         />

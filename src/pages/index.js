@@ -83,9 +83,11 @@ const IndexPage = ({ data: { home, locations }, location }) => {
                 className="home-text block mb-0 pb-0 relative z-10"
               /> */}
 
-              <span className="home-text block mb-0 pb-0 relative z-0">
-                <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>London Studios deliver the newest venues for temporary events, activations and spaces for photographic hire.</SplitText>
-              </span>
+              <div className="md:px-24">
+                <span className="home-text block mb-0 pb-0 relative z-0">
+                  <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>We unlock and re-imagine vacant property as temporary event spaces.</SplitText>
+                </span>
+              </div>
             </div>
           </motion.div>
         </motion.section>

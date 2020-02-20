@@ -54,11 +54,11 @@ h1, .h1 {
 
   & > div:nth-child(1),
   & > div:nth-child(2),
-  & > div:nth-child(5),
-  & > div:nth-child(6),
+  & > div:nth-child(4),
+  & > div:nth-child(7),
+  & > div:nth-child(8),
   & > div:nth-child(9),
-  & > div:nth-child(12),
-  & > div:nth-child(13) {
+  & > div:nth-child(10) {
     @apply font-sans font-light;
     font-size: 34px !important;
     
@@ -122,10 +122,10 @@ h3, .h3 {
   
   /* Paragraph */
   p {
-    @apply mb-6 text-lg normal-case;
+    @apply mb-6 text-lg normal-case leading-normal;
   
     @screen lg {
-      @apply text-xl;
+      @apply text-xl leading-m;
     }
   }
 
@@ -160,6 +160,6 @@ h3, .h3 {
 
 .content--address {
   p {
-    @apply mb-0 text-base;
+    @apply mb-0 text-lg;
   }
 }
