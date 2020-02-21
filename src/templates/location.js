@@ -84,11 +84,11 @@ const LocationPage = ({ data: { current }, location}) => {
               </div>
               { current.locationTag && (
                 <div className="w-full hidden md:block md:w-1/3 md:text-right">
-                  <span className={current.locationTag === 'central' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>Central { current.locationTag === 'central' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'north' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>North { current.locationTag === 'north' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'south' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>South { current.locationTag === 'south' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'east' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>East { current.locationTag === 'east' && (<>•</>)}</span>
-                  <span className={current.locationTag === 'west' ? `w-full block leading-tight text-3xl md:text-4xl font-display text-white` : `w-full block leading-tight text-3xl md:text-4xl font-display text-grey`}>West { current.locationTag === 'west' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'central' ? `w-full block leading-tight text-2xll font-display text-white` : `w-full block leading-tight text-2xll font-display text-grey`}>Central { current.locationTag === 'central' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'north' ? `w-full block leading-tight text-2xll font-display text-white` : `w-full block leading-tight text-2xll font-display text-grey`}>North { current.locationTag === 'north' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'south' ? `w-full block leading-tight text-2xll font-display text-white` : `w-full block leading-tight text-2xll font-display text-grey`}>South { current.locationTag === 'south' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'east' ? `w-full block leading-tight text-2xll font-display text-white` : `w-full block leading-tight text-2xll font-display text-grey`}>East { current.locationTag === 'east' && (<>•</>)}</span>
+                  <span className={current.locationTag === 'west' ? `w-full block leading-tight text-2xll font-display text-white` : `w-full block leading-tight text-2xll font-display text-grey`}>West { current.locationTag === 'west' && (<>•</>)}</span>
                 </div>
               )}
             </div>
@@ -121,7 +121,7 @@ const LocationPage = ({ data: { current }, location}) => {
                         className="content content--floor mb-4 md:mb-6"
                       />
                       { floorplan && (
-                        <a href={floorplan.url} target="_blank" rel="noopener noreferrer" style={color} className="underline">Download Floorplans</a>
+                        <a href={floorplan.url} target="_blank" rel="noopener noreferrer" className="text-cream underline text-lg md:text-xl">Download Floorplans</a>
                       )}
                     </div>
                   </div>

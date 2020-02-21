@@ -138,7 +138,7 @@ h3, .h3 {
     @apply list-disc list-inside pl-0;
 
     li {
-      @apply mb-1 pl-0;
+      @apply mb-1 pl-0 text-lg block;
     }
   }
 }
@@ -153,7 +153,11 @@ h3, .h3 {
   }
   ul {
     li {
-      @apply text-base normal-case;
+      @apply text-base normal-case text-lg mb-0;
+
+      @screen md {
+        @apply text-xl;
+      }
     }
   }
 }
@@ -161,5 +165,9 @@ h3, .h3 {
 .content--address {
   p {
     @apply mb-0 text-lg;
+
+    @screen md {
+      @apply text-xl;
+    }
   }
 }

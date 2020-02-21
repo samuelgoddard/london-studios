@@ -128,7 +128,7 @@ const AboutPage = ({ data: { page }, location}) => {
         >
           <div className="container" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
             <div className="flex flex-wrap">
-              <div className="w-full md:w-auto text-left">
+              <div className="w-full md:w-2/12 text-left">
                 <span className="vertical block font-display text-2xl md:text-3xl xl:text-4xl ml-auto leading-tight mr-0 md:mr-6 mb-3 md:mb-0">{page.footerText}</span>
               </div>
               <div className="w-full md:flex-1">

@@ -61,7 +61,6 @@ class Form extends React.Component {
   render() {
 		const { name, email, enquiry, startDate } = this.state;
 		const color = { color: this.props.color }
-    const bgColor = { backgroundColor: this.props.color }
 
     return (
       <form
