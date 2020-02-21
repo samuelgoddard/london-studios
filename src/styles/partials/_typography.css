@@ -135,10 +135,15 @@ h3, .h3 {
   }
 
   ul {
-    @apply list-disc list-inside pl-0;
+    @apply list-none pl-0;
 
     li {
-      @apply mb-1 pl-0 text-lg block;
+      @apply normal-case text-lg mb-0 relative pl-5 mb-1;
+
+      &:before {
+        @apply absolute top-0 left-0;
+        content: "•"
+      }
     }
   }
 }
@@ -152,8 +157,14 @@ h3, .h3 {
     }
   }
   ul {
+    @apply pl-0 list-none;
     li {
-      @apply text-base normal-case text-lg mb-0;
+      @apply text-base normal-case text-lg mb-0 relative pl-5 mb-1;
+
+      &:before {
+        @apply absolute top-0 left-0;
+        content: "•"
+      }
 
       @screen md {
         @apply text-xl;
