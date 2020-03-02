@@ -145,7 +145,9 @@ export default LocationsPage
 
 export const query = graphql`
   query LocationsQuery {
-    locations: allDatoCmsLocation(filter: {archived: {eq: false}}) {
+    locations: allDatoCmsLocation(
+      filter: { archived: {eq: false} }
+    ) {
       edges {
         node {
           active

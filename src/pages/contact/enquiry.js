@@ -66,7 +66,7 @@ const ContactEnquiryPage = ({ location }) => {
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-9/12">
+            <div className="w-full">
               <Form locationForm={true} color="#faf395"/>
             </div>
           </div>

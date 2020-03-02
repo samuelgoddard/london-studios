@@ -81,6 +81,7 @@ class Carousel extends Component {
             variants={container}
             initial="hidden" 
             animate="visible"
+            className="w-full"
           >
             <div className="relative">
               <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full flex flex-wrap items-center">

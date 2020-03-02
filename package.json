@@ -16,8 +16,8 @@
     "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-scroll-reveal": "0.0.5",
     "gatsby-plugin-sharp": "^2.2.22",
-    "gatsby-source-datocms": "^2.1.22",
-    "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-source-datocms": "^2.1.27",
+    "gatsby-source-filesystem": "^2.1.24",
     "gatsby-transformer-sharp": "^2.2.14",
     "mapbox-gl": "^1.7.0",
     "moment": "^2.24.0",
@@ -35,8 +35,7 @@
     "react-static-google-map": "^0.5.4",
     "react-tabs": "^3.1.0",
     "react-text-fun": "^1.0.0",
-    "simple-react-validator": "^1.4.4",
-    "tailwindcss-transitions": "^2.1.0"
+    "simple-react-validator": "^1.4.4"
   },
   "devDependencies": {
     "gatsby-plugin-purgecss": "^4.0.1",
@@ -45,8 +44,7 @@
     "postcss-nested": "^4.1.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.18.2",
-    "tailwindcss": "^1.1.2",
-    "tailwindcss-transition": "^1.0.5"
+    "tailwindcss": "^1.2.0"
   },
   "license": "MIT",
   "scripts": {

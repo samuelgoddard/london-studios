@@ -103,7 +103,7 @@ const LocationPage = ({ data: { current }, location}) => {
           <div className="flex flex-wrap">
             {current.floors.map(({images, title, description, floorplan}, index) => (
               <div
-                className="mb-16 md:mb-32"
+                className="mb-16 md:mb-32 w-full"
                 data-sal="fade" data-sal-delay="0" data-sal-easing="ease"
                 key={index}
               >

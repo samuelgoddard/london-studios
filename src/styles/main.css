@@ -47,7 +47,7 @@ button {
   max-width: 120px;
   opacity: 0.2;
   transform-origin: center;
-  @apply transition;
+  @apply transition duration-500 ease-in-out;
 
   &:hover {
     transform: scale(1.05);

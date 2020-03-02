@@ -14,7 +14,8 @@ class GeneralForm extends React.Component {
     this.state = {
       name: '',
       email: '',
-      enquiry: ''
+      enquiry: '',
+      industry: '',
     };
   }
 
@@ -42,10 +43,11 @@ class GeneralForm extends React.Component {
     e.preventDefault();
   };
 
+  industryChange = e => this.setState({ industry: e.target.value });
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-		const { name, email, enquiry } = this.state;
+		const { name, email, enquiry, industry } = this.state;
 		const color = { color: this.props.color }
     const bgColor = { backgroundColor: this.props.color }
 
@@ -63,40 +65,59 @@ class GeneralForm extends React.Component {
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </p>
         
-        <div className="flex flex-wrap md:-mx-4">
-          <div className="w-full md:w-1/2 md:px-4 mb-5 md:mb-8">
-						<label htmlFor="name" className="block">
-							<span className="text-black pb-1 block text-base">Name:</span>
-							<input type="text" name="name" id="name" className="input" placeholder="Enter Name" value={name} onChange={this.handleChange} />
+        <div className="flex flex-wrap md:-mx-6">
+          <div className="w-full md:w-1/2 md:px-6">
+            <div className="w-full mb-5">
+              <label htmlFor="name" className="block">
+                <span className="text-black pb-1 block text-base">Name:</span>
+                <input type="text" name="name" id="name" className="input" placeholder="Enter Name" value={name} onChange={this.handleChange} />
 
-							<span style={color} className="block mt-2 text-sm">
-								{this.validator.message('name', name, 'required')}
-							</span>
-						</label>
-					</div>
+                <span style={color} className="block mt-2 text-sm">
+                  {this.validator.message('name', name, 'required')}
+                </span>
+              </label>
+            </div>
 
-					<div className="w-full md:w-1/2 md:px-4 mb-5 md:mb-8">
-						<label htmlFor="email" className="block">
-							<span className="text-black pb-1 block text-base">Email:</span>
-							<input type="email" name="email" id="email" className="input" placeholder="Enter Email" value={email} onChange={this.handleChange} />
+            <div className="w-full mb-5">
+              <label htmlFor="email" className="block">
+                <span className="text-black pb-1 block text-base">Email:</span>
+                <input type="email" name="email" id="email" className="input" placeholder="Enter Email" value={email} onChange={this.handleChange} />
 
-							<span style={color} className="block mt-2 text-sm">
-								{this.validator.message('email', email, 'required|email')}
-							</span>
-						</label>
-					</div>
-				</div>
+                <span style={color} className="block mt-2 text-sm">
+                  {this.validator.message('email', email, 'required|email')}
+                </span>
+              </label>
+            </div>
 
-        <div className="flex flex-wrap items-end md:-mx-4">
-					<div className="w-full md:flex-1 md:px-4">
-						<label htmlFor="enquiry" className="block mb-5 md:mb-0">
-							<span className="text-black pb-1 block text-base">Additional Information:</span>
-							<textarea id="enquiry" name="enquiry" className="input mb-0" rows="4" value={enquiry} onChange={this.handleChange} placeholder="Enter Additional Information..."></textarea>
-						</label>
-					</div>
-					<div className="w-full md:w-auto md:px-4">
-          	<button type="submit" style={bgColor} className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block w-full">Submit</button>
-					</div>
+            <div className="w-full mb-0 pb-0">
+              <label htmlFor="industry" className="block">
+                <span className="text-black pb-1 block text-base">Industry:</span>
+
+                <select name="industry[]" id="industry" className="input" onBlur={this.industryChange}>
+                  <option value="all">Industry Type</option>
+                  <option value="eventsagency">Events Agency</option>
+                  <option value="brand">Brand</option>
+                  <option value="individual">Individual</option>
+                  <option value="propertyowner">Property Owner</option>
+                  <option value="propertyagent">Property Agent</option>
+                  <option value="developer">Developer</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 md:px-6 h-auto">
+            <div className="h-full">
+              <label htmlFor="enquiry" className="block h-full">
+                <span className="text-black pb-1 block text-base sr-only">Additional Information:</span>
+                <textarea id="enquiry" name="enquiry" className="input mb-0 h-full pt-8" rows="4" value={enquiry} onChange={this.handleChange} placeholder="Enter Additional Information..."></textarea>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div className="w-full mt-5">
+          <button type="submit" style={bgColor} className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none ml-auto block w-auto">Submit</button>
         </div>
       </form>
     )

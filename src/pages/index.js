@@ -56,27 +56,33 @@ const IndexPage = ({ data: { home, locations }, location }) => {
             transition="easeInOut"
           >
             <div className="container relative z-10">
-              <div
-                className="absolute z-10 top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20 opacity-25"
-              >
-                <Link to={`locations/${locations.edges[0].node.slug}`}>
-                  <Img fluid={ locations.edges[0].node.teaserImage.fluid } className="w-full" />
-                </Link>
-              </div>
-              <div
-                className="absolute z-10 top-0 right-0 w-full home-image mr-6 mt-12 sm:-mt-6 sm:mr-12 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12 opacity-25"
-              >
-                <Link to={`locations/${locations.edges[1].node.slug}`}>
-                  <Img fluid={ locations.edges[1].node.teaserImage.fluid } className="w-full" />
-                </Link>
-              </div>
-              <div
-                className="absolute z-10 bottom-0 left-0 w-full home-image mx-auto ml-40 -mb-16 md:ml-64 md:-mb-24 -lg:ml-64 lg:-mb-32 opacity-25"
-              >
-                <Link to={`locations/${locations.edges[2].node.slug}`}>
-                  <Img fluid={ locations.edges[2].node.teaserImage.fluid } className="w-full xl:ml-32" />
-                </Link>
-              </div>
+              { locations.edges[0] && (
+                <div
+                  className="absolute z-10 top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20 opacity-25"
+                >
+                  <Link to={`locations/${locations.edges[0].node.slug}`}>
+                    <Img fluid={ locations.edges[0].node.teaserImage.fluid } className="w-full" />
+                  </Link>
+                </div>
+              )}
+              { locations.edges[1] && (
+                <div
+                  className="absolute z-10 top-0 right-0 w-full home-image mr-6 mt-12 sm:-mt-6 sm:mr-12 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12 opacity-25"
+                >
+                  <Link to={`locations/${locations.edges[1].node.slug}`}>
+                    <Img fluid={ locations.edges[1].node.teaserImage.fluid } className="w-full" />
+                  </Link>
+                </div>
+              )}
+              { locations.edges[2] && (
+                <div
+                  className="absolute z-10 bottom-0 left-0 w-full home-image mx-auto ml-40 -mb-16 md:ml-64 md:-mb-24 -lg:ml-64 lg:-mb-32 opacity-25"
+                >
+                  <Link to={`locations/${locations.edges[2].node.slug}`}>
+                    <Img fluid={ locations.edges[2].node.teaserImage.fluid } className="w-full xl:ml-32" />
+                  </Link>
+                </div>
+              )}
 
               {/* <HTMLContent 
                 content={home.introText}

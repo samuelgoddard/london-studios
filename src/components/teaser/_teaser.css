@@ -19,7 +19,7 @@
 }
 
 .m-teaser__img {
-  @apply w-full relative z-0 opacity-25 transition;
+  @apply w-full relative z-0 opacity-25 transition duration-500 ease-in-out;
 
   &.is--active {
     @apply opacity-100;

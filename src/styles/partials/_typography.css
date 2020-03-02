@@ -106,7 +106,7 @@ h3, .h3 {
 
 /* Link */
 .link {
-  @apply text-white underline transition;
+  @apply text-white underline transition duration-500 ease-in-out;
 
   &:hover, &:focus {
     @apply text-grey;
