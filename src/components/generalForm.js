@@ -95,11 +95,8 @@ class GeneralForm extends React.Component {
 
                 <select name="industry[]" id="industry" className="input" onBlur={this.industryChange}>
                   <option value="all">Industry Type</option>
-                  <option value="eventsagency">Events Agency</option>
-                  <option value="brand">Brand</option>
-                  <option value="individual">Individual</option>
-                  <option value="propertyowner">Property Owner</option>
                   <option value="propertyagent">Property Agent</option>
+                  <option value="propertyowner">Property Owner</option>
                   <option value="developer">Developer</option>
                   <option value="other">Other</option>
                 </select>

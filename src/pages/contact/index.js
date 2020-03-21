@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import SEO from "../../components/seo"
 import { motion } from "framer-motion"
 import Footer from "../../components/footer"
-import GeneralForm from "../../components/generalForm"
+import Form from "../../components/form"
 import SplitText from "react-pose-text"
 
 const duration = 0.35
@@ -34,11 +34,11 @@ const charPoses = {
   }
 };
 
-const ContactPage = ({ location }) => {
+const ContactEnquiryPage = ({ location }) => {
   return (
     <>
       <SEO
-        titleOverride={"Contact"}
+        titleOverride={"Enquiry"}
         pathnameOverride={location.pathname}
       />
 
@@ -48,7 +48,7 @@ const ContactPage = ({ location }) => {
         animate="visible"
       >
         <motion.div 
-          className="w-full min-h-maxed flex flex-wrap items-center "
+          className="w-full min-h-maxed flex flex-wrap items-center"
           variants={item}
           transition="easeInOut"
         >
@@ -57,17 +57,17 @@ const ContactPage = ({ location }) => {
               <h1><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Get In Touch</SplitText></h1>
               <div className="overflow-hidden mb-12">
                 <div className="flex flex-wrap list-none">
-                  <div className="mr-2 md:mr-4 text-white border-b border-cream opacity-100 mb-2 md:mb-0 block pt-px">
-                    <Link to="/contact" className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">General Enquiry</Link>
+                  <div className="text-white border-b border-cream opacity-100 mb-2 md:mb-0 block pt-px mr-2 md:mr-4">
+                    <Link to="/contact" className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">Location Enquiry</Link>
                   </div>
-                  <div className="mr-0 opacity-75 pb-0 pt-px">
-                    <Link to="/contact/enquiry" className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">Location Enquiry</Link>
+                  <div className="mr-0 md:mr-0 opacity-75 pb-0 pt-px">
+                    <Link to="/contact/enquiry" className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pb-0 leading-none">Landlord Enquiry</Link>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-9/12">
-              <GeneralForm color="#faf395"/>
+            <div className="w-full">
+              <Form locationForm={true} color="#faf395"/>
             </div>
           </div>
         </motion.div>
@@ -78,4 +78,4 @@ const ContactPage = ({ location }) => {
   )
 }
 
-export default ContactPage
+export default ContactEnquiryPage

@@ -139,9 +139,6 @@ class Form extends React.Component {
                   <option value="eventsagency">Events Agency</option>
                   <option value="brand">Brand</option>
                   <option value="individual">Individual</option>
-                  <option value="propertyowner">Property Owner</option>
-                  <option value="propertyagent">Property Agent</option>
-                  <option value="developer">Developer</option>
                   <option value="other">Other</option>
                 </select>
               </label>

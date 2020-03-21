@@ -40,7 +40,7 @@ const Footer = ({ className }) => (
             <h2 id="footermenulabel" className="sr-only">Footer Menu</h2>
             <ul>
               <li className="block">
-                <Link className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" to="/contact/enquiry">Enquire About A Space</Link>
+                <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://london-studios.us4.list-manage.com/subscribe/post?u=134425709a191c44f72d3b538&amp;id=b040b7e77b" target="_blank" rel="noopener noreferrer">Subscribe</a>
               </li>
               <li className="block">
                 <Link className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" to="/contact">Get In Touch</Link>
