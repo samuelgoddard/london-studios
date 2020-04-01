@@ -81,9 +81,10 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
             <TabPanel className="tab__panel">
               <div className="flex flex-wrap md:-mx-4">
                 {locations.edges.map(({node}, index) => {
-                  let metaCombined = [
+                  let metaCombined = [                    
                     `Useable Area: ${node.totalUseableArea}`,
                     `Capacity: ${node.totalCapacity}`,
+                    `Location: ${node.locationArea}`,
                     `Postcode: ${node.postcode}`
                   ]
                   let meta = metaCombined.join(`\u00A0\u00A0\u00A0\u00A0`);
@@ -91,7 +92,7 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
                     <div className="w-full md:w-1/2 md:px-4 mb-8 md:mb-16" key={index}>
                       <Teaser
                         slug={node.slug}
-                        titlePrefix="Studio"
+                        titlePrefix={node.studio ? "Studio" : ""}
                         title={node.title}
                         image={node.teaserImage.fluid}
                         meta={meta}
@@ -108,6 +109,7 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
                 <div className="flex flex-wrap md:-mx-4">
                   {archivedLocations.edges.map(({node}, index) => {
                     let metaCombined = [
+                      `Location: ${node.locationArea}`,
                       `Useable Area: ${node.totalUseableArea}`,
                       `Capacity: ${node.totalCapacity}`,
                       `Postcode: ${node.postcode}`
@@ -117,7 +119,7 @@ const LocationsPage = ({ data: { locations, archivedLocations }, location}) => {
                       <div className="w-full md:w-1/2 md:px-4 mb-8 md:mb-16" key={index}>
                         <Teaser
                           slug={node.slug}
-                          titlePrefix="Studio"
+                          titlePrefix={node.studio ? "Studio" : ""}
                           title={node.title}
                           image={node.teaserImage.fluid}
                           meta={meta}
@@ -150,7 +152,9 @@ export const query = graphql`
     ) {
       edges {
         node {
+          studio
           active
+          locationArea
           title
           totalCapacity
           totalUseableArea
@@ -170,7 +174,9 @@ export const query = graphql`
     archivedLocations: allDatoCmsLocation(filter: {archived: {eq: true}}) {
       edges {
         node {
+          studio
           id
+          locationArea
           title
           totalCapacity
           totalUseableArea

@@ -1,6 +1,7 @@
 import React from "react"
 import SimpleReactValidator from "simple-react-validator"
 import { navigate } from "gatsby"
+import addToMailchimp from "gatsby-plugin-mailchimp";
 
 const encode = (data) => {
   return Object.keys(data)
@@ -16,6 +17,7 @@ class GeneralForm extends React.Component {
       email: '',
       enquiry: '',
       industry: '',
+      signup: true,
     };
   }
 
@@ -34,7 +36,15 @@ class GeneralForm extends React.Component {
           ...this.state
         })
       })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => {
+        if(this.state.signup == true) {
+          addToMailchimp(this.state.email, {
+            NAME: this.state.name,
+            INDUSTRY: this.state.industry
+          })
+        } else {}
+        navigate(form.getAttribute("action"))
+      })
       .catch(error => alert(error));
     } else {
       this.validator.showMessages();
@@ -42,6 +52,8 @@ class GeneralForm extends React.Component {
     }
     e.preventDefault();
   };
+
+  handleCheckboxChange = e => this.setState({ signup: e.target.checked })
 
   industryChange = e => this.setState({ industry: e.target.value });
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -113,8 +125,15 @@ class GeneralForm extends React.Component {
             </div>
           </div>
         </div>
-        <div className="w-full mt-5">
-          <button type="submit" style={bgColor} className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none ml-auto block w-auto">Submit</button>
+        <div className="w-full mt-5 flex flex-wrap items-center">
+          <div className="">
+            <div className="checkbox">
+              <input type="checkbox" className="checkbox" id="signnn" checked={this.state.signup} onChange={this.handleCheckboxChange} />
+              <label htmlFor="signnn" className="pt-px">Subscribe</label>
+            </div>
+          </div>
+
+          <button type="submit" style={bgColor} className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block w-auto ml-auto">Submit</button>
         </div>
       </form>
     )

@@ -12,6 +12,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: 'https://london-studios.us4.list-manage.com/subscribe/post?u=134425709a191c44f72d3b538&amp;id=b040b7e77b',
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

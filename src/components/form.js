@@ -5,6 +5,7 @@ import { navigate } from "gatsby"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment"
+import addToMailchimp from "gatsby-plugin-mailchimp";
 
 const encode = (data) => {
   return Object.keys(data)
@@ -22,6 +23,7 @@ class Form extends React.Component {
       venue: '',
       enquiry: '',
       industry: '',
+      signup: true,
     };
   }
 
@@ -47,7 +49,15 @@ class Form extends React.Component {
           ...this.state
         })
       })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => {
+        if(this.state.signup == true) {
+          addToMailchimp(this.state.email, {
+            NAME: this.state.name,
+            INDUSTRY: this.state.industry
+          })
+        } else {}
+        navigate(form.getAttribute("action"))
+      })
       .catch(error => alert(error));
     } else {
       this.validator.showMessages();
@@ -55,6 +65,8 @@ class Form extends React.Component {
     }
     e.preventDefault();
   };
+
+  handleCheckboxChange = e => this.setState({ signup: e.target.checked })
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
   selectChange = e => this.setState({ venue: e.target.value });
@@ -154,8 +166,15 @@ class Form extends React.Component {
             </div>
           </div>
         </div>
-        <div className="ml-auto mt-5">
-          <button type="submit" className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block bg-cream ml-auto">Submit</button>
+        <div className="w-full mt-5 flex flex-wrap items-center">
+          <div className="">
+            <div className="checkbox mr-6">
+              <input type="checkbox" className="checkbox" id="signup" checked={this.state.signup} onChange={this.handleCheckboxChange} />
+              <label htmlFor="signup" className="pt-px">Subscribe</label>
+            </div>
+          </div>
+
+          <button type="submit" className="px-3 pt-3 pb-2 text-black font-sans uppercase leading-none block w-auto bg-cream ml-auto">Submit</button>
         </div>
       </form>
     )

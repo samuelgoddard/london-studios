@@ -60,9 +60,14 @@ const LocationPage = ({ data: { current }, location}) => {
           <div className="container image-gradient-title relative z-20">
             <div className="mb-10 lg:mb-16">
               <h1 className="mb-3">
-                Studio <span style={color}>{current.title}</span></h1>
+              { current.studio && (
+                <span>Studio</span>
+               )} <span style={color}>{current.title}</span></h1>
 
               <div className="text-base md:text-lg lg:text-xl md:flex md:flex-wrap">
+                <div className="w-full md:w-auto md:pr-5">
+                  <span>Location: {current.locationArea}</span>
+                </div>
                 <div className="w-full md:w-auto md:pr-5">
                   <span>Useable Area: {current.totalUseableArea}</span>
                 </div>
@@ -142,7 +147,7 @@ const LocationPage = ({ data: { current }, location}) => {
                 <div className="flex flex-wrap md:-mx-6 lg:-mx-12">
                   { current.hireRates && (
                     <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-6 lg:px-12">
-                      <h3 className="mb-6 md:mb-8">Hire<span className="block">Rates</span></h3>
+                      <h3 className="mb-6 md:mb-8">Hire<span className="block">Information</span></h3>
                       <HTMLContent 
                         content={current.hireRates}
                         className="content"
@@ -152,7 +157,7 @@ const LocationPage = ({ data: { current }, location}) => {
 
                   { current.furtherInformation && (
                     <div className="w-full md:w-1/2 mb-8 md:mb-0 md:px-6 lg:px-12">
-                      <h3 className="mb-6 md:mb-8">Further<span className="block">Information</span></h3>
+                      <h3 className="mb-6 md:mb-8">Further<span className="block">Details</span></h3>
                       <HTMLContent 
                         content={current.furtherInformation}
                         className="content"
@@ -218,7 +223,9 @@ export default LocationPage
 export const query = graphql`
   query LocationQuery($slug: String!) {
     current: datoCmsLocation(slug: { eq: $slug }) {
+      studio
       title
+      locationArea
       locationTag
       featuredImage {
         fluid(

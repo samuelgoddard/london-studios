@@ -20,18 +20,21 @@ class Teaser extends React.Component {
           </div>
         )}
 
-        <div className="w-full max-h-64 overflow-hidden">
+        <div className="w-full max-h-64 overflow-hidden relative">
+          {/* <span className="bg-cream text-black absolute top-0 left-0 ml-4 mt-4 z-10 mb-0 pb-0 leading-none p-2 pb-1">London</span> */}
           <Img
             fluid={this.props.image}
             className={this.props.active ? `m-teaser__img is--active` : `m-teaser__img`}
           />
         </div>
-
+        
+        { this.props.titlePrefix && (
         <span className="block m-teaser__title h2 relative z-10">{this.props.titlePrefix}</span>
+        )}
         <h2 style={color} className={`block mb-0 leading-none mb-2 lg:mb-4`}>{this.props.title}</h2>
 
         { this.props.meta && (
-          <span className="block m-teaser__meta">{this.props.meta}</span>
+          <span className="block m-teaser__meta" dangerouslySetInnerHTML={{ __html: this.props.meta }}></span>
         )}
       </Link>
     );
