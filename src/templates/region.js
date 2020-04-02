@@ -35,7 +35,7 @@ const charPoses = {
   }
 };
 
-const LocationsPage = ({ data: { locations, archivedLocations, locationRegions }, location}) => {
+const LocationsRegionPage = ({ data: { locations, archivedLocations, locationRegions }, location}) => {
   return (
     <>
       <SEO
@@ -152,10 +152,10 @@ const LocationsPage = ({ data: { locations, archivedLocations, locationRegions }
   )
 }
 
-export default LocationsPage
+export default LocationsRegionPage
 
 export const query = graphql`
-  query LocationsQuery {
+  query LocationsRegionQuery($slug: String!) {
     locationRegions: allDatoCmsLocationRegion {
       edges {
         node {
@@ -164,9 +164,7 @@ export const query = graphql`
         }
       }
     }
-    locations: allDatoCmsLocation(
-      filter: { archived: {eq: false} }
-    ) {
+    locations: allDatoCmsLocation(filter: {locationRegion: {slug: {eq: $slug}}, active: {eq: true}}) {
       edges {
         node {
           studio
@@ -188,7 +186,7 @@ export const query = graphql`
         }
       }
     }
-    archivedLocations: allDatoCmsLocation(filter: {archived: {eq: true}}) {
+    archivedLocations: allDatoCmsLocation(filter: {locationRegion: {slug: {eq: $slug}}, active: {eq: false}}) {
       edges {
         node {
           studio
