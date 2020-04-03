@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Teaser from "../components/teaser/teaser"
+import RegionSwitcher from "../components/regionSwitcher"
 import { motion } from "framer-motion"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Footer from "../components/footer"
@@ -55,16 +56,12 @@ const LocationsPage = ({ data: { locations, archivedLocations, locationRegions }
             variants={item}
             transition="easeInOut"
           >
-            <div className="flex flex-wrap items-center">
+            <div className="sm:flex sm:flex-wrap items-center">
               <h1><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Locations</SplitText></h1>
-
-              <span className="ml-auto">
-                {locationRegions.edges.map(({node}, index) => {
-                  return (
-                    <Link to={`/locations/${node.slug}`} className="block" key={index}>{ node.name }</Link>
-                  )
-                })}
-              </span>
+            
+                <span className="inline-block w-auto sm:ml-auto">
+                    <RegionSwitcher locations={locationRegions.edges} />
+                </span>
             </div>
             
             <div className="overflow-hidden">

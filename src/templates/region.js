@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Teaser from "../components/teaser/teaser"
+import RegionSwitcher from "../components/regionSwitcher"
 import { motion } from "framer-motion"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Footer from "../components/footer"
@@ -35,7 +36,7 @@ const charPoses = {
   }
 };
 
-const LocationsRegionPage = ({ data: { locations, archivedLocations, locationRegions }, location}) => {
+const LocationsRegionPage = ({ data: { locations, archivedLocations, locationRegions, current }, location}) => {
   return (
     <>
       <SEO
@@ -55,16 +56,12 @@ const LocationsRegionPage = ({ data: { locations, archivedLocations, locationReg
             variants={item}
             transition="easeInOut"
           >
-            <div className="flex flex-wrap items-center">
-              <h1><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>Locations</SplitText></h1>
-
-              <span className="ml-auto">
-                {locationRegions.edges.map(({node}, index) => {
-                  return (
-                    <Link to={`/locations/${node.slug}`} className="block" key={index}>{ node.name }</Link>
-                  )
-                })}
-              </span>
+            <div className="sm:flex sm:flex-wrap items-center">
+              <h1><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>{ current.name }</SplitText></h1>
+            
+                <span className="inline-block w-auto sm:ml-auto">
+                    <RegionSwitcher locations={locationRegions.edges} />
+                </span>
             </div>
             
             <div className="overflow-hidden">
@@ -72,11 +69,6 @@ const LocationsRegionPage = ({ data: { locations, archivedLocations, locationReg
                 <Tab className="mr-2 md:mr-4 opacity-75 pb-0 mb-2 md:mb-0 pt-px">
                   <button className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Available Locations</button>
                 </Tab>
-                { archivedLocations.edges.length > 0 && (
-                  <Tab className="mr-0 opacity-75 pb-0 block pt-px">
-                    <button className="block text-sm md:text-lg lg:text-xl uppercase focus:outline-none pt-px pb-0">Archive Locations</button>
-                  </Tab>
-                )}
               </TabList>
             </div>
             
@@ -156,6 +148,9 @@ export default LocationsRegionPage
 
 export const query = graphql`
   query LocationsRegionQuery($slug: String!) {
+    current: datoCmsLocationRegion(slug: { eq: $slug }) {
+        name
+    }
     locationRegions: allDatoCmsLocationRegion {
       edges {
         node {
