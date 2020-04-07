@@ -52,7 +52,7 @@ const SEO = ({ pathname, titleOverride, descriptionOverride, pathnameOverride, i
       <link rel="canonical" href={`${siteUrl}${pathnameOverride ? pathnameOverride : pathname}`} />
       <meta
         name="viewport"
-        content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"
+        content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover, user-scalable=no"
       />
       <title>{titleOverride ? titleOverride : title }</title>
       <meta name="description" content={descriptionOverride ? descriptionOverride : description} />
