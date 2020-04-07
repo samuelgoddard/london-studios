@@ -56,10 +56,10 @@ const LocationsRegionPage = ({ data: { locations, archivedLocations, locationReg
             variants={item}
             transition="easeInOut"
           >
-            <div className="sm:flex sm:flex-wrap items-center">
-              <h1><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>{ current.name }</SplitText></h1>
+            <div className="sm:flex sm:flex-wrap items-end mb-2 md:mb-10">
+              <h1 className="mb-4 md:mb-0 pb-0"><SplitText initialPose="exit" pose="enter" charPoses={charPoses}>{ current.name }</SplitText></h1>
             
-                <span className="inline-block w-auto sm:ml-auto">
+              <span className="inline-block w-auto sm:ml-auto mb-2 md:mb-0">
                     <RegionSwitcher locations={locationRegions.edges} />
                 </span>
             </div>
@@ -83,12 +83,12 @@ const LocationsRegionPage = ({ data: { locations, archivedLocations, locationReg
               <div className="flex flex-wrap md:-mx-4">
                 {locations.edges.map(({node}, index) => {
                   let metaCombined = [                    
-                    `Useable Area: ${node.totalUseableArea}`,
-                    `Capacity: ${node.totalCapacity}`,
-                    `Location: ${node.locationArea}`,
+                    `Useable Area: ${node.totalUseableArea}\u00A0\u00A0\u00A0\u00A0`,
+                    `Capacity: ${node.totalCapacity}\u00A0\u00A0\u00A0\u00A0<br/>`,
+                    `Location: ${node.locationArea}\u00A0\u00A0\u00A0\u00A0`,
                     `Postcode: ${node.postcode}`
                   ]
-                  let meta = metaCombined.join(`\u00A0\u00A0\u00A0\u00A0`);
+                  let meta = metaCombined.join(``);
                   return (
                     <div className="w-full md:w-1/2 md:px-4 mb-8 md:mb-16" key={index}>
                       <Teaser

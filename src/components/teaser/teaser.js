@@ -31,7 +31,7 @@ class Teaser extends React.Component {
         { this.props.titlePrefix && (
         <span className="block m-teaser__title h2 relative z-10">{this.props.titlePrefix}</span>
         )}
-        <h2 style={color} className={`block mb-0 leading-none mb-2 lg:mb-4`}>{this.props.title}</h2>
+        <h2 style={color} className={this.props.titlePrefix ? `block mb-0 leading-none mb-2 lg:mb-4` : `block mb-0 leading-none mb-2 lg:mb-4 mt-1`}>{this.props.title}</h2>
 
         { this.props.meta && (
           <span className="block m-teaser__meta" dangerouslySetInnerHTML={{ __html: this.props.meta }}></span>
