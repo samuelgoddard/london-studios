@@ -70,12 +70,12 @@ input::placeholder, textarea::placeholder {
 }
 
 select {
-  @apply bg-black font-sans uppercase pl-0 py-2 pr-4 leading-tight appearance-none !important;
+  @apply bg-black font-sans uppercase pl-0 pt-2 pb-1 pr-4 leading-tight appearance-none !important;
   -moz-appearance: none;
   -webkit-appearance: none;
 
   &:focus, &:hover {
-    @apply outline-none border-none text-cream cursor-pointer;
+    @apply outline-none text-cream cursor-pointer;
   }
 }
 

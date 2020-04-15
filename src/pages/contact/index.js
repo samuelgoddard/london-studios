@@ -34,7 +34,7 @@ const charPoses = {
   }
 };
 
-const ContactEnquiryPage = ({ location }) => {
+const ContactEnquiryPage =({ data: { locations }, location }) => {
   return (
     <>
       <SEO
@@ -67,7 +67,11 @@ const ContactEnquiryPage = ({ location }) => {
               </div>
             </div>
             <div className="w-full">
-              <Form locationForm={true} color="#faf395"/>
+              <Form 
+                locations={locations.edges}
+                locationForm={true}
+                color="#faf395"
+              />
             </div>
           </div>
         </motion.div>
@@ -79,3 +83,16 @@ const ContactEnquiryPage = ({ location }) => {
 }
 
 export default ContactEnquiryPage
+
+export const query = graphql`
+  query ContactQuery {
+    locations: allDatoCmsLocation(filter: {archived: {eq: false}}) {
+      edges {
+        node {
+          title
+          slug
+        }
+      }
+    }
+  }
+`

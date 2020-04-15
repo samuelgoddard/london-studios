@@ -21,6 +21,7 @@ class Form extends React.Component {
       name: '',
       email: '',
       venue: '',
+      locations: Array.from(this.props.locations),
       enquiry: '',
       industry: '',
       signup: true,
@@ -120,10 +121,11 @@ class Form extends React.Component {
 
                 <select name="venue[]" id="venue" className="input" onBlur={this.selectChange}>
                   <option value="all">Venue</option>
-                  <option value="spitalfields">Spitalfields</option>
-                  <option value="newoxford">New Oxford</option>
-                  <option value="hammersmith">Hammersmith</option>
-                  <option value="chancerylane">Chancery Lane</option>
+                  { this.state.locations.map(({node}, index) => {
+                    return (
+                      <option value={node.title} key={index}>{node.title}</option>
+                    )
+                  })}
                 </select>
               </label>
             </div>

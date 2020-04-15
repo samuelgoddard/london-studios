@@ -29,7 +29,7 @@ const item = {
   },
 }
 
-const LocationPage = ({ data: { current }, location}) => {
+const LocationPage = ({ data: { current, locations }, location}) => {
   const color = { color: current.color.hex }
   return (
     <>
@@ -207,7 +207,7 @@ const LocationPage = ({ data: { current }, location}) => {
                 <h3 className="mb-5 md:mb-3">Enquire</h3>
                 <p>Please get in touch to discuss your hire dates and space requirements.</p>
               </div>
-              <Form color={current.color.hex} />
+              <Form locations={locations.edges} color={current.color.hex} />
             </div>
           </div>
         </motion.div>
@@ -222,6 +222,14 @@ export default LocationPage
 
 export const query = graphql`
   query LocationQuery($slug: String!) {
+    locations: allDatoCmsLocation(filter: {archived: {eq: false}}) {
+      edges {
+        node {
+          title
+          slug
+        }
+      }
+    }
     current: datoCmsLocation(slug: { eq: $slug }) {
       studio
       title
