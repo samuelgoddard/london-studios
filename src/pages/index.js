@@ -91,7 +91,7 @@ const IndexPage = ({ data: { home, locations }, location }) => {
 
               <div className="md:px-24">
                 <span className="home-text block mb-0 pb-0 relative z-0">
-                  <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>We unlock and re-imagine vacant property as temporary event spaces.</SplitText>
+                  <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>{home.introText}</SplitText>
                 </span>
               </div>
             </div>
