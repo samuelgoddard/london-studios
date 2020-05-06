@@ -55,7 +55,7 @@ const IndexPage = ({ data: { home, locations, homeImage }, location }) => {
             variants={item}
             transition="easeInOut"
           >
-            <Img fluid={ homeImage.childImageSharp.fluid } className="h-full object-cover opacity-50" />
+            <Img fluid={ homeImage.childImageSharp.fluid } className="h-full object-cover opacity-100" />    
           </motion.div>
           <motion.div 
             className="w-full min-h-maxed flex flex-wrap items-center"
@@ -113,9 +113,9 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
-    homeImage: file(relativePath: { eq: "home.png" }) {
+    homeImage: file(relativePath: { eq: "home.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 500) {
+        fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
         }
       }
