@@ -35,7 +35,7 @@ const charPoses = {
   }
 };
 
-const IndexPage = ({ data: { home, locations }, location }) => {
+const IndexPage = ({ data: { home, locations, homeImage }, location }) => {
   return (
     <>
       <SEO
@@ -51,12 +51,19 @@ const IndexPage = ({ data: { home, locations }, location }) => {
           className=""
         >
           <motion.div 
-            className="w-full min-h-maxed flex flex-wrap items-center "
+            className="absolute top-0 left-0 right-0 bottom-0 h-full w-full z-0"
+            variants={item}
+            transition="easeInOut"
+          >
+            <Img fluid={ homeImage.childImageSharp.fluid } className="h-full object-cover opacity-50" />
+          </motion.div>
+          <motion.div 
+            className="w-full min-h-maxed flex flex-wrap items-center"
             variants={item}
             transition="easeInOut"
           >
             <div className="container relative z-10">
-              { locations.edges[0] && (
+              {/* { locations.edges[0] && (
                 <div
                   className="absolute z-10 top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20 opacity-25"
                 >
@@ -82,7 +89,7 @@ const IndexPage = ({ data: { home, locations }, location }) => {
                     <Img fluid={ locations.edges[2].node.teaserImage.fluid } className="w-full xl:ml-32" />
                   </Link>
                 </div>
-              )}
+              )} */}
 
               {/* <HTMLContent 
                 content={home.introText}
@@ -106,6 +113,13 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
+    homeImage: file(relativePath: { eq: "home.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     home: datoCmsHome {
       title
       introText
@@ -119,7 +133,9 @@ export const query = graphql`
         description
         twitterCard
         image {
-          url
+          fluid(imgixParams: {h: "1200", w: "900"}) {
+            ...GatsbyDatoCmsFluid
+          }
         }
       }
     }
