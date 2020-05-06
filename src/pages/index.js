@@ -104,7 +104,7 @@ const IndexPage = ({ data: { home, locations, homeImage }, location }) => {
             </div>
           </motion.div>
         </motion.section>
-      <Footer className="w-full h-32 md:h-24" />
+      <Footer className="w-full h-32 md:h-24 relative z-10" />
     </>
   )
 }

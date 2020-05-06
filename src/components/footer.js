@@ -27,7 +27,7 @@ const Footer = ({ className }) => (
     variants={container}
     initial="hidden" 
     animate="visible"
-    className={className ? className : `pt-12 pb-8 md:pt-20 md:pb-16 w-full`}
+    className={className ? className : `pt-12 pb-8 md:pt-20 md:pb-16 w-full z-10 relative`}
   >
     <motion.div 
       className="container"
