@@ -54,7 +54,7 @@ const Footer = ({ className }) => (
             <h2 id="socialmenulabel" className="sr-only">Social Menu</h2>
             <ul className="md:text-right">
               <li className="block">
-              <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.instagram.com/london_studios_/" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
+              <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.instagram.com/london_studios/" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
               </li>
               <li className="block">
                 <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.linkedin.com/company/london-studios-uk/" target="_blank" rel="noopener noreferrer">Follow On LinkedIn</a>
