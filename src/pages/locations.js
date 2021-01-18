@@ -89,10 +89,10 @@ const LocationsPage = ({ data: { locations, archivedLocations, locationRegions }
               <div className="flex flex-wrap md:-mx-4">
                 {locations.edges.map(({node}, index) => {
                   let metaCombined = [                    
-                    `Useable Area: ${node.totalUseableArea}\u00A0\u00A0\u00A0\u00A0`,
-                    `Capacity: ${node.totalCapacity}\u00A0\u00A0\u00A0\u00A0<br/>`,
-                    `Location: ${node.locationArea}\u00A0\u00A0\u00A0\u00A0`,
-                    `Postcode: ${node.postcode}`
+                    `<span class="block md:inline">Useable Area: ${node.totalUseableArea}\u00A0\u00A0\u00A0\u00A0</span>`,
+                    `<span class="block md:inline">Capacity: ${node.totalCapacity}\u00A0\u00A0\u00A0\u00A0</span><span class="hidden md:inline"><br/></span>`,
+                    `<span class="block md:inline">Location: ${node.locationArea}\u00A0\u00A0\u00A0\u00A0</span>`,
+                    `<span class="block md:inline">Postcode: ${node.postcode}</span>`
                   ]
                   let meta = metaCombined.join(``);
                   return (

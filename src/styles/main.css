@@ -71,6 +71,62 @@ button {
   }
 }
 
+.home-image--small {
+  max-width: 60px;
+  opacity: 0.2;
+  transform-origin: center;
+  @apply transition duration-500 ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.75;
+  }
+
+  @screen sm {
+    max-width: 90px !important;
+  }
+
+  @screen md {
+    max-width: 120px !important;
+  }
+  
+  @screen lg {
+    max-width: 180px !important;
+  }
+
+  @screen xl {
+    max-width: 200px !important;
+  }
+}
+
+.home-image--tiny {
+  max-width: 50px;
+  opacity: 0.2;
+  transform-origin: center;
+  @apply transition duration-500 ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.75;
+  }
+
+  @screen sm {
+    max-width: 80px !important;
+  }
+
+  @screen md {
+    max-width: 110px !important;
+  }
+  
+  @screen lg {
+    max-width: 140px !important;
+  }
+
+  @screen xl {
+    max-width: 160px !important;
+  }
+}
+
 .image-gradient {
   height: 45%;
   background: rgb(2,0,36);
@@ -79,6 +135,10 @@ button {
 
 .image-gradient-title {
   margin-top: -17%;
+}
+
+.image-gradient-title--one-line {
+  margin-top: -25%;
 }
 
 .css-cols {

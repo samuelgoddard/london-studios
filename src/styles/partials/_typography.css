@@ -52,7 +52,7 @@ h1, .h1 {
     font-size: 80px !important;
   }
 
-  & > div:nth-child(1),
+  /* & > div:nth-child(1),
   & > div:nth-child(2),
   & > div:nth-child(4),
   & > div:nth-child(7),
@@ -81,7 +81,7 @@ h1, .h1 {
     @screen 2xl {
       font-size: 90px !important;
     }
-  }
+  } */
 }
 
 h2, .h2 {
@@ -172,6 +172,23 @@ h3, .h3 {
 
       @screen md {
         @apply text-xl;
+      }
+    }
+  }
+}
+
+.content--partners {
+  p {
+    @apply mb-6;
+  }
+  ul {
+    @apply pl-0 list-none;
+    li {
+      @apply text-base normal-case text-lg mb-0 relative pl-5 mb-1;
+
+      &:before {
+        @apply absolute top-0 left-0;
+        content: "•"
       }
     }
   }

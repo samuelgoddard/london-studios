@@ -50,22 +50,22 @@ const IndexPage = ({ data: { home, locations, homeImage }, location }) => {
           animate="visible"
           className=""
         >
-          <motion.div 
+          {/* <motion.div 
             className="absolute top-0 left-0 right-0 bottom-0 h-full w-full z-0"
             variants={item}
             transition="easeInOut"
           >
             <Img fluid={ homeImage.childImageSharp.fluid } className="h-full object-cover opacity-100" />    
-          </motion.div>
+          </motion.div> */}
           <motion.div 
             className="w-full min-h-maxed flex flex-wrap items-center"
             variants={item}
             transition="easeInOut"
           >
             <div className="container relative z-10">
-              {/* { locations.edges[0] && (
+              { locations.edges[0] && (
                 <div
-                  className="absolute z-10 top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-16 lg:ml-20 lg:-mt-20 opacity-25"
+                  className="absolute z-10 top-0 left-0 w-full home-image ml-12 -mt-12 md:ml-16 md:-mt-24 lg:ml-20 lg:-mt-32 opacity-35"
                 >
                   <Link to={`locations/${locations.edges[0].node.slug}`}>
                     <Img fluid={ locations.edges[0].node.teaserImage.fluid } className="w-full" />
@@ -74,7 +74,7 @@ const IndexPage = ({ data: { home, locations, homeImage }, location }) => {
               )}
               { locations.edges[1] && (
                 <div
-                  className="absolute z-10 top-0 right-0 w-full home-image mr-6 mt-12 sm:-mt-6 sm:mr-12 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12 opacity-25"
+                  className="absolute z-10 top-0 right-0 w-full home-image mr-6 -mt-12 sm:-mt-6 sm:mr-12 md:mt-16 md:-mt-10 lg:mr-24 lg:-mt-12 opacity-35"
                 >
                   <Link to={`locations/${locations.edges[1].node.slug}`}>
                     <Img fluid={ locations.edges[1].node.teaserImage.fluid } className="w-full" />
@@ -83,13 +83,33 @@ const IndexPage = ({ data: { home, locations, homeImage }, location }) => {
               )}
               { locations.edges[2] && (
                 <div
-                  className="absolute z-10 bottom-0 left-0 w-full home-image mx-auto ml-40 -mb-16 md:ml-64 md:-mb-24 -lg:ml-64 lg:-mb-32 opacity-25"
+                  className="absolute z-10 bottom-0 left-0 w-full home-image mx-auto ml-24 -mb-16 md:ml-64 md:-mb-24 lg:ml-64 lg:-mb-32 opacity-35"
                 >
                   <Link to={`locations/${locations.edges[2].node.slug}`}>
-                    <Img fluid={ locations.edges[2].node.teaserImage.fluid } className="w-full xl:ml-32" />
+                    <Img fluid={ locations.edges[2].node.teaserImage.fluid } className="w-full ml-12 lg:ml-32 xl:ml-48 2xl:ml-64" />
                   </Link>
                 </div>
-              )} */}
+              )}
+
+              { locations.edges[3] && (
+                <div
+                  className="absolute z-10 bottom-0 left-0 w-full home-image home-image--small mx-auto -mb-12 ml-12 md:ml-16 lg:ml-32 md:-mb-16 lg:-mb-24 opacity-35"
+                >
+                  <Link to={`locations/${locations.edges[3].node.slug}`}>
+                    <Img fluid={ locations.edges[3].node.teaserImage.fluid } className="w-full" />
+                  </Link>
+                </div>
+              )}
+
+              { locations.edges[4] && (
+                <div
+                  className="absolute z-10 bottom-0 right-0 w-full home-image home-image--tiny mx-auto -mb-12 mr-12 md:mr-16 lg:mr-48 md:-mb-16 lg:-mb-24 opacity-35"
+                >
+                  <Link to={`locations/${locations.edges[4].node.slug}`}>
+                    <Img fluid={ locations.edges[4].node.teaserImage.fluid } className="w-full" />
+                  </Link>
+                </div>
+              )}
 
               {/* <HTMLContent 
                 content={home.introText}
@@ -139,7 +159,7 @@ export const query = graphql`
         }
       }
     }
-    locations: allDatoCmsLocation(limit: 3, filter: {archived: {eq: false}}) {
+    locations: allDatoCmsLocation(limit: 5, filter: {archived: {eq: false}}) {
       edges {
         node {
           teaserImage {

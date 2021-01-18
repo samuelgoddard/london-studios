@@ -35,7 +35,7 @@ const charPoses = {
   }
 };
 
-const AboutPage = ({ data: { page }, location}) => {
+const PartnersPage = ({ data: { page }, location}) => {
   return (
     <>
       <SEO
@@ -62,7 +62,7 @@ const AboutPage = ({ data: { page }, location}) => {
             <Img fluid={page.heroImage.fluid} className="w-full mb-6 lg:mb-10 pb-64 md:pb-24 lg:pb-32 xl:pb-0" />
           </div>
 
-          <div className="container image-gradient-title relative z-20">
+          <div className="container image-gradient-title--one-line relative z-20">
             <div className="mb-10 lg:mb-16 w-full max-w-md lg:max-w-2xl 2xl:max-w-4xl">
               <h1 className="mb-3 2xl:text-8xl">
                 <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
@@ -91,29 +91,7 @@ const AboutPage = ({ data: { page }, location}) => {
           transition="easeInOut"
         >
           <div className="container">
-            <div className="flex flex-wrap items-end" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
-              <div className="w-full md:w-8/12 lg:w-6/12 text-left mb-8 lg:mb-0">
-                <Img fluid={page.ourStoryImage.fluid} className="w-full max-w-full" />  
-              </div>
-              
-              <div className="w-full lg:w-5/12 ml-auto">
-                <h3 className="font-display text-3xl lg:text-4xl xl:text-5xl ml-auto leading-heading">Our Story</h3>
-                <HTMLContent 
-                  content={page.ourStoryText}
-                  className="content"
-                />
-              </div>
-            </div>
-          </div>
-        </motion.div>
-        
-        <motion.div 
-          className="mb-10 md:mb-32 overflow-hidden"
-          variants={item}
-          transition="easeInOut"
-        >
-          <div className="container">
-            <div className="flex flex-wrap items-end mb-8 md:mb-12" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
+            <div className="flex flex-wrap items-end mb-8 md:mb-12 xl:mb-24" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
               <div className="w-full md:w-5/12 text-right">
                 <div className="w-9/12 ml-auto md:mr-12 mb-6 md:mb-0">
                   <span className="font-display text-4xl lg:text-4xl xl:text-5xl ml-auto leading-heading">{page.supportingImage1Text}</span>
@@ -122,39 +100,19 @@ const AboutPage = ({ data: { page }, location}) => {
               <div className="w-full md:w-7/12">
                 <Img fluid={page.supportingImage1.fluid} className="w-full max-w-full" />
               </div>
+              
             </div>
 
             <div className="flex flex-wrap md:-mx-6" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
               <div className="w-full md:w-9/12 md:px-6">
                 <Img fluid={page.supportingImage2.fluid} className="w-full max-w-full mb-8" />
+              </div>
+
+              <div className="w-full md:w-3/12 md:px-6">
                 <HTMLContent 
                   content={page.supportingImage2Text}
-                  className="css-cols mb-8 md:mb-0 text-lg lg:text-xl normal-case md:leading-m"
+                  className="content--partners mb-8 md:mb-0 text-lg lg:text-xl normal-case md:leading-m"
                 />
-              </div>
-              <div className="w-full md:w-3/12 md:px-6" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
-                <Img fluid={page.supportingImage3.fluid} className="w-full max-w-full mb-6" />
-                <HTMLContent 
-                  content={page.supportingImage3Text}
-                  className="text-sm md:text-sm lg:text-base mb-8 md:mb-0"
-                />
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          className="mb-8 md:mb-12"
-          variants={item}
-          transition="easeInOut"
-        >
-          <div className="container" data-sal="fade" data-sal-delay="0" data-sal-duration="1500" data-sal-easing="ease">
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-2/12 text-left">
-                <span className="vertical block font-display text-2xl md:text-3xl xl:text-4xl ml-auto leading-tight mr-0 md:mr-6 mb-3 md:mb-0">{page.footerText}</span>
-              </div>
-              <div className="w-full md:flex-1">
-                <Img fluid={page.footerImage.fluid} className="w-full max-w-full" />
               </div>
             </div>
           </div>
@@ -166,33 +124,21 @@ const AboutPage = ({ data: { page }, location}) => {
   )
 }
 
-export default AboutPage
+export default PartnersPage
 
 export const query = graphql`
-  query AboutQuery {
-    page: datoCmsAbout {
+  query PartnersQuery {
+    page: datoCmsPartner {
       title
       heroImage {
         fluid(imgixParams: {h: "1080", w: "1920"}) {
           ...GatsbyDatoCmsFluid
         }
       }
-      ourStoryText
-      ourStoryImage {
-        fluid(imgixParams: {h: "600", w: "900"}) {
-          ...GatsbyDatoCmsFluid
-        }
-      }
       heroHeading
       introduction
-      footerText
-      footerImage {
-        fluid(imgixParams: {h: "1080", w: "1920"}) {
-          ...GatsbyDatoCmsFluid
-        }
-      }
       supportingImage1 {
-        fluid(imgixParams: {h: "600", w: "900"}) {
+        fluid(imgixParams: {h: "900", w: "900"}) {
           ...GatsbyDatoCmsFluid
         }
       }
@@ -203,12 +149,6 @@ export const query = graphql`
         }
       }
       supportingImage2Text
-      supportingImage3 {
-        fluid(imgixParams: {h: "600", w: "400"}) {
-          ...GatsbyDatoCmsFluid
-        }
-      }
-      supportingImage3Text
       metaTags {
         title
         description

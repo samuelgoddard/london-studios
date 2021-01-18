@@ -65,19 +65,25 @@ class Header extends React.Component {
                 <h2 id="mainmenulabel" className="sr-only">Main Menu</h2>
                 <ul>
                   <li className="inline-block ml-0 md:ml-2 mx-1 md:mx-2">
-                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-lg" to="/locations" partiallyActive={true}>Locations</Link>
+                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent lg:text-lg" to="/locations" partiallyActive={true}>Locations</Link>
                   </li>
                   <li className="inline-block mx-1 md:mx-2">
                     •
                   </li>
                   <li className="inline-block mx-1 md:mx-2">
-                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-lg" to="/about" partiallyActive={true}>About</Link>
+                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent lg:text-lg" to="/about" partiallyActive={true}>About</Link>
+                  </li>
+                  <li className="inline-block mx-1 md:mx-2">
+                    •
+                  </li>
+                  <li className="inline-block mx-1 md:mx-2">
+                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent lg:text-lg" to="/partners" partiallyActive={true}>Partners</Link>
                   </li>
                   <li className="inline-block mx-1 md:mx-2">
                     •
                   </li>
                   <li className="inline-block mx-1 md:mx-2 md:mr-0">
-                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-lg" to="/contact" partiallyActive={true}>Contact</Link>
+                    <Link activeClassName="border-b border-cream" className="link no-underline border-b border-transparent lg:text-lg" to="/contact" partiallyActive={true}>Contact</Link>
                   </li>
                 </ul>
               </nav>
@@ -110,6 +116,9 @@ class Header extends React.Component {
                         </li>
                         <li className="w-full block mb-2">
                           <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/about" partiallyActive={true}>About</Link>
+                        </li>
+                        <li className="w-full block mb-2">
+                          <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/partners" partiallyActive={true}>Partners</Link>
                         </li>
                         <li className="w-full block mb-2">
                           <Link onClick={this.toggleOverlay} activeClassName="border-b border-cream" className="link no-underline border-b border-transparent text-3xl w-full font-display" to="/contact" partiallyActive={true}>Contact</Link>

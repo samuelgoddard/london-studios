@@ -45,6 +45,9 @@ const Footer = ({ className }) => (
               <li className="block">
                 <Link className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" to="/contact">Get In Touch</Link>
               </li>
+              {/* <li className="block">
+                <span className="block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0">25 Eccleston Place Belgravia, London, SW1W 9NF</span>
+              </li> */}
             </ul>
           </nav>
         </div>
@@ -54,10 +57,10 @@ const Footer = ({ className }) => (
             <h2 id="socialmenulabel" className="sr-only">Social Menu</h2>
             <ul className="md:text-right">
               <li className="block">
-              <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.instagram.com/london_studios/" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
+              <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.instagram.com/london_studios/" target="_blank" rel="noopener noreferrer">Instagram</a>
               </li>
               <li className="block">
-                <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.linkedin.com/company/london-studios-uk/" target="_blank" rel="noopener noreferrer">Follow On LinkedIn</a>
+                <a className="link block no-underline pt-px md:pt-0 pr-px md:pr-0 pb-px md:pb-0" href="https://www.linkedin.com/company/london-studios-uk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </li>
             </ul>
           </nav>

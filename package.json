@@ -19,6 +19,7 @@
     "gatsby-plugin-sharp": "^2.2.22",
     "gatsby-source-datocms": "^2.1.27",
     "gatsby-source-filesystem": "^2.1.24",
+    "gatsby-source-instagram": "^0.9.0",
     "gatsby-transformer-sharp": "^2.2.14",
     "mapbox-gl": "^1.7.0",
     "moment": "^2.24.0",
